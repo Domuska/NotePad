@@ -308,5 +308,8 @@
     <string name="sorting">Sorting</string>
     <string name="undo">Undo</string>
     <string name="changelog">Changelog</string>
+    <string name="taskDetails_dueDateBox_contentDescription">Add due date</string>
+    <string name="taskDetails_notificationAdd_contentDescription">Add notification</string>
+    <string name="taskDetails_addReminder_contentDescription">Add a reminder</string>
 
 </resources>

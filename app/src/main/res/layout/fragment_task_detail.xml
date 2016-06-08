@@ -161,7 +161,8 @@
                         android:nextFocusDown="@+id/notificationAdd"
                         android:nextFocusRight="@+id/dueCancelButton"
                         android:paddingLeft="16dp"
-                        android:textAppearance="?android:attr/textAppearanceMedium"/>
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        />
                 </RelativeLayout>
 
                 <TextView
@@ -185,7 +186,8 @@
                     android:text="@string/add_a_reminder"
                     android:textAllCaps="false"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="?android:attr/textColorSecondary"/>
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:contentDescription="@string/taskDetails_addReminder_contentDescription"/>
 
                 <LinearLayout
                     android:id="@+id/notificationList"

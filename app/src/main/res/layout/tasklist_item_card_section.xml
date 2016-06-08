@@ -77,7 +77,8 @@
         custom:secondaryColor="@color/completedGrey"
         custom:titleFontFamily="robotolight"
         custom:titleFontStyle="bold"
-        custom:titleRelativeSize="1.2"/>
+        custom:titleRelativeSize="1.2"
+        android:contentDescription="Item title"/>
 
     <com.nononsenseapps.ui.DateView
         android:id="@+id/date"
