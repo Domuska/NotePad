@@ -5,8 +5,23 @@ import com.nononsenseapps.notepad.database.TaskList;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.support.test.espresso.ViewInteraction;
+import android.support.test.espresso.contrib.DrawerActions;
+import android.support.test.espresso.contrib.RecyclerViewActions;
+import com.nononsenseapps.notepad.R;
+
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.typeText;
+import static android.support.test.espresso.matcher.ViewMatchers.withClassName;
+import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static org.hamcrest.Matchers.endsWith;
 
 public class Helper {
+
+	public static String NAVIGATE_UP_TEXT = "Navigate up";
 
 	public static Task getATask(final Context context) {
 		Cursor c = context.getContentResolver().query(Task.URI, Task.Columns.FIELDS, null, null, null);	
@@ -23,4 +38,49 @@ public class Helper {
 			result = new TaskList(c);
 		return result;
 	}
+
+	public static void closeDrawer() {
+		onView(withId(com.nononsenseapps.notepad.R.id.drawer_layout)).perform(DrawerActions.close());
+	}
+
+	public static void openDrawer(){
+		onView(withId(com.nononsenseapps.notepad.R.id.drawer_layout)).perform(DrawerActions.open());
+	}
+
+	public static void createNoteWithName(String noteName) {
+		onView(withId(com.nononsenseapps.notepad.R.id.fab)).perform(click());
+		onView(withId(com.nononsenseapps.notepad.R.id.taskText)).perform(typeText(noteName));
+	}
+
+	public static void navigateUp(){
+		onView(withContentDescription(Helper.NAVIGATE_UP_TEXT)).perform(click());
+	}
+
+	public static ViewInteraction scrollRecyclerViewToText(String noteName){
+
+//		return onView(withClassName(endsWith("RecyclerView")))
+//				.perform(RecyclerViewActions.scrollTo(
+//						withText(noteName)
+//				));
+
+		onView(withText(noteName));
+
+		return onView(withContentDescription("List of tasks"))
+				.perform(RecyclerViewActions.scrollTo(
+						withText(noteName)
+				));
+
+//		return onView(withContentDescription("List of tasks"))
+//				.perform(RecyclerViewActions.scrollToPosition(5)
+//				);
+	}
+
+	public static void createNotes(String[] noteNames){
+		for (int i = 0; i < noteNames.length; i++){
+			createNoteWithName(noteNames[i]);
+			navigateUp();
+		}
+	}
+
+
 }

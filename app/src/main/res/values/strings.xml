@@ -311,5 +311,6 @@
     <string name="taskDetails_dueDateBox_contentDescription">Add due date</string>
     <string name="taskDetails_notificationAdd_contentDescription">Add notification</string>
     <string name="taskDetails_addReminder_contentDescription">Add a reminder</string>
+    <string name="contentdescription_tasklist_recyclerview">List of tasks</string>
 
 </resources>

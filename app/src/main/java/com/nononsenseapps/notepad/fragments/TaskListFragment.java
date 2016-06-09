@@ -433,6 +433,7 @@ public class TaskListFragment extends Fragment
     View rootView = inflater.inflate(R.layout.fragment_task_list, container, false);
 
     listView = (RecyclerView) rootView.findViewById(android.R.id.list);
+//    listView = (RecyclerView) rootView.findViewById(R.id.notelist_recyclerview);
     loadList();
     // ListView will only support scrolling ToolBar off-screen from Lollipop onwards.
     // RecyclerView does not have this limitation
