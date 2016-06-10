@@ -128,6 +128,7 @@ public class Espresso_ClearDoneTasks {
     // todo fix this thing. I dont know how it works and stuff.
 
     //https://spin.atomicobject.com/2016/04/15/espresso-testing-recyclerviews/
+    //https://medium.com/@_rpiel/recyclerview-and-espresso-a-complicated-story-3f6f4179652e#.vxcgg4frc
 
     // Convenience helper
     private RecyclerViewMatcher withRecyclerView(final int recyclerViewId) {
