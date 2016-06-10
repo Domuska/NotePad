@@ -35,11 +35,13 @@ public class Espresso_AddNoteToTaskList {
     @Before
     public void initStrings(){
         taskListName = "a random task list";
-        noteName1 = "prepare food";
+        noteName1 = "make pizza";
     }
 
     @Test
     public void testAddNoteToTaskList(){
+
+        Helper.openDrawer();
 
         //create the task list
         onView(withText("Create new"))

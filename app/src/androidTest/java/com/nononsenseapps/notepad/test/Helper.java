@@ -5,10 +5,16 @@ import com.nononsenseapps.notepad.database.TaskList;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.support.test.espresso.UiController;
+import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.ViewInteraction;
 import android.support.test.espresso.contrib.DrawerActions;
 import android.support.test.espresso.contrib.RecyclerViewActions;
+import android.view.View;
+
 import com.nononsenseapps.notepad.R;
+
+import org.hamcrest.Matcher;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -79,6 +85,31 @@ public class Helper {
 		for (int i = 0; i < noteNames.length; i++){
 			createNoteWithName(noteNames[i]);
 			navigateUp();
+		}
+	}
+
+
+	public static class MyViewAction{
+
+		public static ViewAction clickChildViewWithId(final int id){
+			return new ViewAction() {
+				@Override
+				public Matcher<View> getConstraints() {
+					return null;
+				}
+
+				@Override
+				public String getDescription() {
+					return "Click on a child view with specified id.";
+				}
+
+				@Override
+				public void perform(UiController uiController, View view) {
+					View v = view.findViewById(id);
+					v.performClick();
+
+				}
+			};
 		}
 	}
 

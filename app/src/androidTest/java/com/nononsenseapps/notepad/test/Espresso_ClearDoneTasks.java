@@ -1,6 +1,9 @@
 package com.nononsenseapps.notepad.test;
 
 import android.content.res.Resources;
+import android.support.test.espresso.UiController;
+import android.support.test.espresso.ViewAction;
+import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.support.v7.widget.RecyclerView;
@@ -14,14 +17,15 @@ import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.hasDescendant;
+import static android.support.test.espresso.assertion.ViewAssertions.doesNotExist;
+import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
@@ -44,6 +48,14 @@ public class Espresso_ClearDoneTasks {
     }
 
     @Test
+    @Ignore
+    public void testStuff(){
+        Helper.closeDrawer();
+        String[] names = {"seppo", "ismo"};
+        Helper.createNotes(names);
+    }
+
+    @Test
     public void testCompletedTasksAreCleared(){
 
         Helper.closeDrawer();
@@ -52,23 +64,66 @@ public class Espresso_ClearDoneTasks {
         Helper.createNotes(noteNames);
 
         //todo remove this assert, it is silly and not what we need
-        onView(withRecyclerView(android.R.id.list).atPosition(3))
-                .check(matches(hasDescendant(withText(noteName1))));
+//        onView(withRecyclerView(android.R.id.list).atPosition(3))
+//                .check(matches(hasDescendant(withText(noteName1))));
 
         //todo click the checkbox in a couple rows
-//        onView(withRecyclerView(android.R.id.list).atPosition(1))
 
+//        onView(withId(R.id.checkbox)).perform(click());
 
+//        onView(withId(R.id.taskitemCard)).perform(
+//                RecyclerViewActions.actionOnItemAtPosition(1, new CheckCheckBox())
+//        );
 
-        //        onView(withId(R.id.checkbox)).perform(click());
+//        MyViewAction action = new MyViewAction();
 
-        //todo remove the "done" tasks
+        clickCheckBoxAt(1);
+        clickCheckBoxAt(3);
 
+        //clear notes
+        onView(withContentDescription("More options")).perform(click());
+        onView(withId(R.id.title)).perform(click());
+        onView(withId(android.R.id.button1)).perform(click());
 
-        //todo check that the done tasks are no longer in the list
+        //check that the notes do not exist any more
+        onView(withText(noteNames[0]))
+                .check(doesNotExist());
+        onView(withText(noteNames[2]))
+                .check(doesNotExist());
 
 
     }
+
+    private void clickCheckBoxAt(int position) {
+        onView(withId(android.R.id.list)).perform(
+                RecyclerViewActions.actionOnItemAtPosition(position, Helper.MyViewAction.clickChildViewWithId(
+                        R.id.checkbox
+                ))
+        );
+    }
+
+    public class CheckCheckBox implements ViewAction{
+
+        ViewAction action = click();
+
+        @Override
+        public Matcher<View> getConstraints() {
+            return null;
+        }
+
+        @Override
+        public String getDescription() {
+            return "set checkbox checked";
+        }
+
+        @Override
+        public void perform(UiController uiController, View view) {
+            action.perform(uiController, view.findViewById(R.id.checkbox));
+        }
+    }
+
+
+
 
     // todo fix this thing. I dont know how it works and stuff.
 
