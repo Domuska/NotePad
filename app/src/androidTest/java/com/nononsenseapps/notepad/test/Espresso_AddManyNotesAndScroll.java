@@ -6,6 +6,7 @@ import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
 
 import com.nononsenseapps.notepad.activities.ActivityList;
+import com.nononsenseapps.notepad.R;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -13,6 +14,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
@@ -40,6 +44,11 @@ public class Espresso_AddManyNotesAndScroll {
         Helper.closeDrawer();
 
         Helper.createNotes(noteNameList);
+
+        onView(withText(noteNameList[0])).perform(click());
+
+        //assert that the new fragment was launched
+        onView(withId(R.id.taskText)).check(matches(isDisplayed()));
 
 //        onView(withId(android.R.id.list))
 
