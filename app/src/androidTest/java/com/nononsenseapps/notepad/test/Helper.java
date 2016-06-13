@@ -43,39 +43,18 @@ public class Helper {
 	}
 
 	public static void closeDrawer() {
+		//use the Espresso helper DrawerActions
 		onView(withId(com.nononsenseapps.notepad.R.id.drawer_layout)).perform(DrawerActions.close());
 	}
 
 	public static void openDrawer(){
+		//use the Espresso helper DrawerActions
 		onView(withId(com.nononsenseapps.notepad.R.id.drawer_layout)).perform(DrawerActions.open());
 	}
 
 	public static void createNoteWithName(String noteName) {
 		onView(withId(com.nononsenseapps.notepad.R.id.fab)).perform(click());
 		onView(withId(com.nononsenseapps.notepad.R.id.taskText)).perform(typeText(noteName));
-	}
-
-	public static void navigateUp(){
-		onView(withContentDescription(Helper.NAVIGATE_UP_TEXT)).perform(click());
-	}
-
-	public static ViewInteraction scrollRecyclerViewToText(String noteName){
-
-//		return onView(withClassName(endsWith("RecyclerView")))
-//				.perform(RecyclerViewActions.scrollTo(
-//						withText(noteName)
-//				));
-
-		onView(withText(noteName));
-
-		return onView(withContentDescription("List of tasks"))
-				.perform(RecyclerViewActions.scrollTo(
-						withText(noteName)
-				));
-
-//		return onView(withContentDescription("List of tasks"))
-//				.perform(RecyclerViewActions.scrollToPosition(5)
-//				);
 	}
 
 	public static void createNotes(String[] noteNames){
@@ -85,6 +64,9 @@ public class Helper {
 		}
 	}
 
+	public static void navigateUp(){
+		onView(withContentDescription(Helper.NAVIGATE_UP_TEXT)).perform(click());
+	}
 
 	public static class MyViewAction{
 
@@ -109,5 +91,29 @@ public class Helper {
 			};
 		}
 	}
+
+	public static ViewInteraction scrollRecyclerViewToText(String noteName){
+
+//		return onView(withClassName(endsWith("RecyclerView")))
+//				.perform(RecyclerViewActions.scrollTo(
+//						withText(noteName)
+//				));
+
+		onView(withText(noteName));
+
+		return onView(withContentDescription("List of tasks"))
+				.perform(RecyclerViewActions.scrollTo(
+						withText(noteName)
+				));
+
+//		return onView(withContentDescription("List of tasks"))
+//				.perform(RecyclerViewActions.scrollToPosition(5)
+//				);
+	}
+
+
+
+
+
 
 }

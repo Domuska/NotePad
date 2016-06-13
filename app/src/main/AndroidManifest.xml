@@ -335,5 +335,5 @@
             android:exported="false"
             android:label="File Watcher"></service>
     </application>
-
+    
 </manifest>

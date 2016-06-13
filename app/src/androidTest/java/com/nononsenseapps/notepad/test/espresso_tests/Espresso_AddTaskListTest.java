@@ -17,6 +17,7 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
@@ -50,7 +51,7 @@ public class Espresso_AddTaskListTest {
         onView(withId(R.id.drawer_layout)).perform(DrawerActions.open());
 
         //check that the new note is found and has the correct text
-        onView(withText(taskListName)).check(matches(withText(taskListName)));
+        onView(withText(taskListName)).check(matches(isDisplayed()));
     }
 
 

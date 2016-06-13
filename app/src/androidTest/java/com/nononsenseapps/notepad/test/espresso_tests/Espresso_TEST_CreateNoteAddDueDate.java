@@ -1,8 +1,10 @@
 package com.nononsenseapps.notepad.test.espresso_tests;
 
 import android.app.Activity;
+import android.app.Instrumentation;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -23,6 +25,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
@@ -39,7 +42,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class Espresso_TEST_CreateNoteAddDueDate {
+public class Espresso_TEST_CreateNoteAddDueDate{
 
     private String noteName1, noteName2, noteName3, noteName4;
 
@@ -49,11 +52,17 @@ public class Espresso_TEST_CreateNoteAddDueDate {
 
     @Before
     public void initStrings(){
+        System.out.println(InstrumentationRegistry.getTargetContext().getApplicationInfo().dataDir);
         noteName1 = "prepare food";
         noteName2 = "take dogs out";
         noteName3 = "water plants";
         noteName4 = "sleep";
+    }
 
+    @Before
+    public void clearData(){
+        //this will delete the database too so nothing can be written anywhere, not optimal
+//        myUtils.deleteDir(new File(InstrumentationRegistry.getTargetContext().getApplicationInfo().dataDir));
     }
 
     @After
@@ -63,7 +72,6 @@ public class Espresso_TEST_CreateNoteAddDueDate {
 
     @Test
     public void testAddNewNoteWithDueDateCheckDateIsVisible(){
-
         Helper.closeDrawer();
 
         Helper.createNoteWithName(noteName1);
@@ -72,14 +80,12 @@ public class Espresso_TEST_CreateNoteAddDueDate {
 
         Helper.navigateUp();
         onView(withId(R.id.date)).check(matches(isDisplayed()));
+
     }
 
-    //all below this should be removed
 
     @Test
-    @Ignore
     public void testCompletedTasksAreCleared(){
-
         Helper.closeDrawer();
 
         String[] noteNames = {noteName1, noteName2, noteName3, noteName4};
@@ -135,6 +141,23 @@ public class Espresso_TEST_CreateNoteAddDueDate {
                     activity.finish();
                 }
             }
+        }
+    }
+
+    private static final class myUtils {
+
+        public static boolean deleteDir(File dir) {
+
+            if (dir != null && dir.isDirectory()) {
+                String[] children = dir.list();
+                for (int i = 0; i < children.length; i++) {
+                    boolean success = deleteDir(new File(dir, children[i]));
+                    if (!success) {
+                        return false;
+                    }
+                }
+            }
+            return dir.delete();
         }
     }
 }
