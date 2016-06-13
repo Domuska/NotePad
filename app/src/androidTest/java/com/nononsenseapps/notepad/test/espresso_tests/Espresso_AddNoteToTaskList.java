@@ -1,12 +1,12 @@
-package com.nononsenseapps.notepad.test;
+package com.nononsenseapps.notepad.test.espresso_tests;
 
 import android.support.test.espresso.contrib.DrawerActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
 
-import com.nononsenseapps.notepad.*;
 import com.nononsenseapps.notepad.activities.ActivityList;
+import com.nononsenseapps.notepad.test.Helper;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -35,7 +35,7 @@ public class Espresso_AddNoteToTaskList {
     @Before
     public void initStrings(){
         taskListName = "a random task list";
-        noteName1 = "make pizza";
+        noteName1 = "prepare food";
     }
 
     @Test

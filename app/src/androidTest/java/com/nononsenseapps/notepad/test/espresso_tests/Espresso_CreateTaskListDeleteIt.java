@@ -1,4 +1,4 @@
-package com.nononsenseapps.notepad.test;
+package com.nononsenseapps.notepad.test.espresso_tests;
 
 
 import android.support.test.rule.ActivityTestRule;
@@ -7,6 +7,7 @@ import android.test.suitebuilder.annotation.LargeTest;
 
 import com.nononsenseapps.notepad.activities.ActivityList;
 import com.nononsenseapps.notepad.R;
+import com.nononsenseapps.notepad.test.Helper;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -17,6 +18,7 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.longClick;
 import static android.support.test.espresso.action.ViewActions.typeText;
+import static android.support.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
@@ -36,6 +38,7 @@ public class Espresso_CreateTaskListDeleteIt {
     @Before
     public void initStrings(){
         taskListName = "a random task list";
+
     }
 
     @Test
@@ -60,7 +63,7 @@ public class Espresso_CreateTaskListDeleteIt {
                 .perform(click());
 
         onView(withText(taskListName))
-                .check(matches(not(isDisplayed())));
+                .check(doesNotExist());
     }
 
 }

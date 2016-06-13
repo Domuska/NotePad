@@ -1,4 +1,4 @@
-package com.nononsenseapps.notepad.test;
+package com.nononsenseapps.notepad.test.espresso_tests;
 
 import android.content.res.Resources;
 import android.support.test.espresso.UiController;
@@ -12,12 +12,12 @@ import android.view.View;
 
 import com.nononsenseapps.notepad.activities.ActivityList;
 import com.nononsenseapps.notepad.R;
+import com.nononsenseapps.notepad.test.Helper;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -45,14 +45,6 @@ public class Espresso_ClearDoneTasks {
         noteName2 = "take dogs out";
         noteName3 = "water plants";
         noteName4 = "sleep";
-    }
-
-    @Test
-    @Ignore
-    public void testStuff(){
-        Helper.closeDrawer();
-        String[] names = {"seppo", "ismo"};
-        Helper.createNotes(names);
     }
 
     @Test

@@ -1,11 +1,11 @@
-package com.nononsenseapps.notepad.test;
+package com.nononsenseapps.notepad.test.espresso_tests;
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
 
-import com.nononsenseapps.notepad.*;
 import com.nononsenseapps.notepad.activities.ActivityList;
+import com.nononsenseapps.notepad.test.Helper;
 
 import org.junit.Before;
 import org.junit.Rule;

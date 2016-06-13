@@ -1,5 +1,6 @@
 package com.nononsenseapps.notepad.test;
 
+import com.nononsenseapps.notepad.*;
 import com.nononsenseapps.notepad.database.Task;
 import com.nononsenseapps.notepad.database.TaskList;
 
@@ -12,18 +13,14 @@ import android.support.test.espresso.contrib.DrawerActions;
 import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.view.View;
 
-import com.nononsenseapps.notepad.R;
-
 import org.hamcrest.Matcher;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.typeText;
-import static android.support.test.espresso.matcher.ViewMatchers.withClassName;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static org.hamcrest.Matchers.endsWith;
 
 public class Helper {
 
@@ -112,6 +109,5 @@ public class Helper {
 			};
 		}
 	}
-
 
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.nononsenseapps.notepad.test;
+package com.nononsenseapps.notepad.test.other_tests;
 
 import android.app.Instrumentation;
 import android.test.ActivityInstrumentationTestCase2;

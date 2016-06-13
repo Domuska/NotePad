@@ -1,29 +1,31 @@
-package com.nononsenseapps.notepad.test;
-
+package com.nononsenseapps.notepad.test.espresso_tests;
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
 
+import com.nononsenseapps.notepad.R;
 import com.nononsenseapps.notepad.activities.ActivityList;
+import com.nononsenseapps.notepad.test.Helper;
 
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+
 import static android.support.test.espresso.Espresso.onView;
+
 import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
+
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class Espresso_AddNewNoteTest {
+public class Espresso_AddAndDeleteNoteTest {
 
     private String noteName1;
-
 
     @Rule
     public ActivityTestRule<ActivityList> myActivityRule =
@@ -35,15 +37,22 @@ public class Espresso_AddNewNoteTest {
     }
 
     @Test
-    public void testAddNewNoteShouldShowNameInNotesScreen(){
+    public void testCreateNoteAndDeleteIt() {
 
         Helper.closeDrawer();
 
         Helper.createNoteWithName(noteName1);
         Helper.navigateUp();
 
-        onView(withText(noteName1)).check(matches(withText(noteName1)));
+//        Helper.scrollRecyclerViewToText(noteName1)
+//                .check(matches(withText(noteName1)));
 
+
+        onView(withText(noteName1)).perform(click());
+        onView(withId(R.id.menu_delete)).perform(click());
     }
+
+
+
 
 }

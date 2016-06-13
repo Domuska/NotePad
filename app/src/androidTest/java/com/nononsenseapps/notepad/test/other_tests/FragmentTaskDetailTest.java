@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.nononsenseapps.notepad.test;
+package com.nononsenseapps.notepad.test.other_tests;
 
 import android.app.Instrumentation;
 import android.content.Intent;

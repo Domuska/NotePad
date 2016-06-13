@@ -1,9 +1,9 @@
-package com.nononsenseapps.notepad.test;
+package com.nononsenseapps.notepad.test.espresso_tests;
 
+import android.support.test.espresso.contrib.DrawerActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
-
 import com.nononsenseapps.notepad.R;
 
 import com.nononsenseapps.notepad.activities.ActivityList;
@@ -15,16 +15,18 @@ import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class Espresso_CreateNoteAddDueDate {
+public class Espresso_AddTaskListTest {
 
-    private String noteName1;
+
+    private String taskListName, noteName1;
 
     @Rule
     public ActivityTestRule<ActivityList> myActivityRule =
@@ -32,19 +34,27 @@ public class Espresso_CreateNoteAddDueDate {
 
     @Before
     public void initStrings(){
+        taskListName = "a random task list";
         noteName1 = "prepare food";
     }
 
+
     @Test
-    public void testAddNewNoteWithDueDateCheckDateIsVisible(){
+    public void testAddTaskListCheckItIsAddedToDrawer(){
 
-        Helper.closeDrawer();
+        onView(withText("Create new"))
+                .perform(click());
 
-        Helper.createNoteWithName(noteName1);
-        onView(withId(R.id.dueDateBox)).perform(click());
-        onView(withId(R.id.done)).perform(click());
+        onView(withId(R.id.titleField)).perform(typeText(taskListName));
+        onView(withId(R.id.dialog_yes)).perform(click());
+        onView(withId(R.id.drawer_layout)).perform(DrawerActions.open());
 
-        Helper.navigateUp();
-        onView(withId(R.id.date)).check(matches(isDisplayed()));
+        //check that the new note is found and has the correct text
+        onView(withText(taskListName)).check(matches(withText(taskListName)));
     }
+
+
+
+
 }
+

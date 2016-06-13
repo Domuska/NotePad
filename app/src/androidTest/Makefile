@@ -27,12 +27,12 @@ testspoon:
 
 testeditor:
 	adb shell am instrument -w \
--e class com.nononsenseapps.notepad.test.FragmentTaskDetailTest \
+-e class com.nononsenseapps.notepad.test.other_tests.FragmentTaskDetailTest \
 com.nononsenseapps.notepad.test/android.test.InstrumentationTestRunner
 
 testlist:
 	adb shell am instrument -w \
--e class com.nononsenseapps.notepad.test.FragmentTaskListsTest \
+-e class com.nononsenseapps.notepad.test.other_tests.FragmentTaskListsTest \
 com.nononsenseapps.notepad.test/android.test.InstrumentationTestRunner
 
 testlistpager:
@@ -43,16 +43,16 @@ com.nononsenseapps.notepad.test/android.test.InstrumentationTestRunner
 
 testprovider:
 	adb shell am instrument -w \
--e class com.nononsenseapps.notepad.test.DBProviderTest \
+-e class com.nononsenseapps.notepad.test.other_tests.DBProviderTest \
 com.nononsenseapps.notepad.test/android.test.InstrumentationTestRunner
 
 
 testgtask:
 	adb shell am instrument -w \
--e class com.nononsenseapps.notepad.test.GTaskSyncTest \
+-e class com.nononsenseapps.notepad.test.other_tests.GTaskSyncTest \
 com.nononsenseapps.notepad.test/android.test.InstrumentationTestRunner
 
 testrfc:
 	adb shell am instrument -w \
--e class com.nononsenseapps.notepad.test.RFCDateTest \
+-e class com.nononsenseapps.notepad.test.other_tests.RFCDateTest \
 com.nononsenseapps.notepad.test/android.test.InstrumentationTestRunner

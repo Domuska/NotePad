@@ -1,4 +1,4 @@
-package com.nononsenseapps.notepad.test;
+package com.nononsenseapps.notepad.test.espresso_tests;
 
 import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.rule.ActivityTestRule;
@@ -7,8 +7,8 @@ import android.test.suitebuilder.annotation.LargeTest;
 
 import com.nononsenseapps.notepad.activities.ActivityList;
 import com.nononsenseapps.notepad.R;
+import com.nononsenseapps.notepad.test.Helper;
 
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +16,7 @@ import org.junit.runner.RunWith;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.hasDescendant;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
@@ -45,7 +46,10 @@ public class Espresso_AddManyNotesAndScroll {
 
         Helper.createNotes(noteNameList);
 
-        onView(withText(noteNameList[0])).perform(click());
+
+        onView(withId(android.R.id.list)).perform(RecyclerViewActions.actionOnItem(
+                hasDescendant(withText(noteNameList[0])), click()
+        ));
 
         //assert that the new fragment was launched
         onView(withId(R.id.taskText)).check(matches(isDisplayed()));
@@ -62,6 +66,14 @@ public class Espresso_AddManyNotesAndScroll {
         );
     }
          */
+    }
+
+    private void clickElementAt(int position){
+        onView(withId(android.R.id.list)).perform(
+                RecyclerViewActions.actionOnItemAtPosition(position, Helper.MyViewAction.clickChildViewWithId(
+                        android.R.id.text1
+                ))
+        );
     }
 
 }

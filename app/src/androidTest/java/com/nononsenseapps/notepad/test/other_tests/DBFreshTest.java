@@ -1,4 +1,4 @@
-package com.nononsenseapps.notepad.test;
+package com.nononsenseapps.notepad.test.other_tests;
 
 import com.nononsenseapps.notepad.database.DatabaseHandler;
 import com.nononsenseapps.notepad.database.LegacyDBHelper;

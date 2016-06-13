@@ -1,4 +1,4 @@
-package com.nononsenseapps.notepad.test;
+package com.nononsenseapps.notepad.test.other_tests;
 
 import java.util.ArrayList;
 import java.util.Calendar;
