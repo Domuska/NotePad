@@ -7,6 +7,7 @@ import android.test.suitebuilder.annotation.LargeTest;
 import com.nononsenseapps.notepad.R;
 
 import com.nononsenseapps.notepad.activities.ActivityList;
+import com.nononsenseapps.notepad.test.Helper;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -48,7 +49,8 @@ public class Espresso_AddTaskListTest {
 
         onView(withId(R.id.titleField)).perform(typeText(taskListName));
         onView(withId(R.id.dialog_yes)).perform(click());
-        onView(withId(R.id.drawer_layout)).perform(DrawerActions.open());
+//        onView(withId(R.id.drawer_layout)).perform(DrawerActions.open());
+        Helper.openDrawer();
 
         //check that the new note is found and has the correct text
         onView(withText(taskListName)).check(matches(isDisplayed()));
