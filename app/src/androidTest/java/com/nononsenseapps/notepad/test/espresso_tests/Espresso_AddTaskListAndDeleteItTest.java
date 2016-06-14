@@ -27,7 +27,7 @@ import static org.hamcrest.core.IsNot.not;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class Espresso_CreateTaskListDeleteIt {
+public class Espresso_AddTaskListAndDeleteItTest {
 
     private String taskListName;
 

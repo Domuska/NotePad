@@ -19,14 +19,6 @@ public class ExampleTest extends ActivityInstrumentationTestCase2 <ActivityList>
     private static final String LAUNCHER_ACTIVITY_FULL_CLASSNAME =
             "com.nononsenseapps.notepad.ActivityList";
 
-//    private static Class<?> launcherActivityClass;
-//    static{
-//        try {
-//            launcherActivityClass = Class.forName(LAUNCHER_ACTIVITY_FULL_CLASSNAME);
-//        } catch (ClassNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
 
 //    @SuppressWarnings("unchecked")
     public ExampleTest(){
@@ -36,7 +28,6 @@ public class ExampleTest extends ActivityInstrumentationTestCase2 <ActivityList>
     public void setUp() throws Exception {
 //        super.setUp();
 //        System.out.println(getInstrumentation().getTargetContext().getApplicationInfo().dataDir);
-        Util.deleteDir(new File(getInstrumentation().getTargetContext().getApplicationInfo().dataDir));
         solo = new Solo(getInstrumentation());
         getActivity();
     }
@@ -58,25 +49,11 @@ public class ExampleTest extends ActivityInstrumentationTestCase2 <ActivityList>
 //        solo.clickOnView(button);
         solo.clickOnText("Create new");
 
+
         //Clear the EditText editText1
 //        solo.clearEditText((android.widget.EditText) solo.getView("editText1"));
 //        solo.enterText((android.widget.EditText) solo.getView("editText1"), "This is an example text");
     }
 
-    private static final class Util {
 
-        public static boolean deleteDir(File dir) {
-
-            if (dir != null && dir.isDirectory()) {
-                String[] children = dir.list();
-                for (int i = 0; i < children.length; i++) {
-                    boolean success = deleteDir(new File(dir, children[i]));
-                    if (!success) {
-                        return false;
-                    }
-                }
-            }
-            return dir.delete();
-        }
-    }
 }
