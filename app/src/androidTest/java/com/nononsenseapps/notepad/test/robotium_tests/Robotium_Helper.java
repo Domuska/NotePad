@@ -38,7 +38,7 @@ public class Robotium_Helper {
         int fromY = screenHeight / 2;
         int toY = fromY;
 
-        solo.drag(fromX, toX, fromY, toY, 2);
+        solo.drag(fromX, toX, fromY, toY, 4);
 
     }
 
