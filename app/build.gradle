@@ -172,10 +172,7 @@ dependencies {
   androidTestCompile 'com.android.support:support-v4:23.1.0'
   androidTestCompile 'com.android.support:recyclerview-v7:23.1.0'
 
-
-  // Set this dependency to build and run UI Automator tests
-  //androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
-
-
+  //robotium
+  androidTestCompile 'com.jayway.android.robotium:robotium-solo:5.5.4'
 
 }

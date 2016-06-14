@@ -47,9 +47,9 @@ public class Espresso_AddAndDeleteNoteTest {
 //        Helper.scrollRecyclerViewToText(noteName1)
 //                .check(matches(withText(noteName1)));
 
-
         onView(withText(noteName1)).perform(click());
         onView(withId(R.id.menu_delete)).perform(click());
+
     }
 
 
