@@ -54,28 +54,15 @@ public class Espresso_ClearDoneTasks {
 
         String[] noteNames = {noteName1, noteName2, noteName3, noteName4};
         Helper.createNotes(noteNames);
-
-        //todo remove this assert, it is silly and not what we need
-//        onView(withRecyclerView(android.R.id.list).atPosition(3))
-//                .check(matches(hasDescendant(withText(noteName1))));
-
-        //todo click the checkbox in a couple rows
-
-//        onView(withId(R.id.checkbox)).perform(click());
-
-//        onView(withId(R.id.taskitemCard)).perform(
-//                RecyclerViewActions.actionOnItemAtPosition(1, new CheckCheckBox())
-//        );
-
-//        MyViewAction action = new MyViewAction();
-
         clickCheckBoxAt(1);
         clickCheckBoxAt(3);
 
         //clear notes
         onView(withContentDescription("More options")).perform(click());
-        onView(withId(R.id.title)).perform(click());
-        onView(withId(android.R.id.button1)).perform(click());
+//        onView(withId(R.id.title)).perform(click());
+        onView(withText("Clear completed")).perform(click());
+//        onView(withId(android.R.id.button1)).perform(click());
+        onView(withText("OK")).perform(click());
 
         //check that the notes do not exist any more
         onView(withText(noteNames[0]))
