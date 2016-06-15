@@ -72,6 +72,15 @@ public class Robotium_Helper {
     @NonNull
     public static String getCurrentMonthName() {
         String date = DateFormat.getDateInstance(DateFormat.LONG).format(new Date());
-        return date.substring(0, date.indexOf(" "));
+
+        int firstSpaceIndex = date.indexOf(" ");
+        String dateReturned = date.substring(0, firstSpaceIndex);
+
+        dateReturned += date.substring(firstSpaceIndex, date.lastIndexOf(" "));
+
+        //trim the trailing , from the string
+        dateReturned = dateReturned.substring(0, dateReturned.length()-1);
+
+        return dateReturned;
     }
 }
