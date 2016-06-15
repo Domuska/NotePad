@@ -49,7 +49,6 @@ public class Espresso_AddTaskListTest {
 
         onView(withId(R.id.titleField)).perform(typeText(taskListName));
         onView(withId(R.id.dialog_yes)).perform(click());
-//        onView(withId(R.id.drawer_layout)).perform(DrawerActions.open());
         Helper.openDrawer();
 
         //check that the new note is found and has the correct text
