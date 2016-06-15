@@ -15,9 +15,13 @@ public class Robotium_AddManyNotesAndScroll extends ActivityInstrumentationTestC
                     "work out", "do weird stuff", "read a book", "drink water",
                     "write a book", "proofread the book", "publish the book",
                     "ponder life", "build a house", "repair the house", "call contractor",
-                    "write another book", "scrap the book project", "start a blog"
-
+                    "write another book", "scrap the book project", "start a blog",
+                    "  ", "     "
             };
+
+    private String[] notes = {"aaaaaaaaaa", "bbbbbbbb", "ccccccc", "dddddd", "eeeeeee",
+    "fffff", "gggggg", "hhhhhhh", "iiiiii", "jjjjjjj", "kkkkk", "mmmmmmm", "nnnnnnnnn", "oooooo",
+    "pppppp", "qqqqqq", "rrrrrrrr", "sssssss", "ttttttt", "uuuuuuuu", "wwwwwww", "xxxxxxxx"};
 
     private static final String LAUNCHER_ACTIVITY_FULL_CLASSNAME =
             "com.nononsenseapps.notepad.ActivityList";
@@ -42,6 +46,7 @@ public class Robotium_AddManyNotesAndScroll extends ActivityInstrumentationTestC
 
         Robotium_Helper.closeDrawer(solo);
 
+
         Robotium_Helper.createNotes(solo, noteNameList);
 
         boolean noteFound = false;
@@ -52,8 +57,9 @@ public class Robotium_AddManyNotesAndScroll extends ActivityInstrumentationTestC
                 noteFound = true;
             }
             canBeScrolled = solo.scrollDownRecyclerView(0);
-
         }
+
+//        solo.waitForActivity("ActivityList1", 200000);
 
         assertTrue("note found in the list", noteFound);
     }

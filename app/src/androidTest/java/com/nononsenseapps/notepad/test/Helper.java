@@ -6,6 +6,7 @@ import com.nononsenseapps.notepad.database.TaskList;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.support.annotation.NonNull;
 import android.support.test.espresso.UiController;
 import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.ViewInteraction;
@@ -14,6 +15,9 @@ import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.view.View;
 
 import org.hamcrest.Matcher;
+
+import java.text.DateFormat;
+import java.util.Date;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -42,6 +46,8 @@ public class Helper {
 		return result;
 	}
 
+
+	//Espresso
 	public static void closeDrawer() {
 		onView(withId(com.nononsenseapps.notepad.R.id.drawer_layout)).perform(DrawerActions.close());
 	}
@@ -58,6 +64,8 @@ public class Helper {
 	public static void navigateUp(){
 		onView(withContentDescription(Helper.NAVIGATE_UP_TEXT)).perform(click());
 	}
+
+	
 
 	public static ViewInteraction scrollRecyclerViewToText(String noteName){
 

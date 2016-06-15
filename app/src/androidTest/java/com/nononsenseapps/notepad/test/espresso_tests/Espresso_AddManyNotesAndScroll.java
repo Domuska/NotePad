@@ -46,7 +46,6 @@ public class Espresso_AddManyNotesAndScroll {
 
         Helper.createNotes(noteNameList);
 
-
         onView(withId(android.R.id.list)).perform(RecyclerViewActions.actionOnItem(
                 hasDescendant(withText(noteNameList[0])), click()
         ));

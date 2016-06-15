@@ -1,11 +1,16 @@
 package com.nononsenseapps.notepad.test.robotium_tests;
 
 import android.graphics.Point;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.EditText;
 
 import com.nononsenseapps.notepad.R;
 import com.robotium.solo.Solo;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Robotium_Helper {
 
@@ -61,5 +66,12 @@ public class Robotium_Helper {
 
     public static void navigateUp(Solo solo){
         solo.clickOnActionBarHomeButton();
+    }
+
+
+    @NonNull
+    public static String getCurrentMonthName() {
+        String date = DateFormat.getDateInstance(DateFormat.LONG).format(new Date());
+        return date.substring(0, date.indexOf(" "));
     }
 }
