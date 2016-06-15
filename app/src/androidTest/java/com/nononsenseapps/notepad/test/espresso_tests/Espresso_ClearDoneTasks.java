@@ -33,7 +33,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 @LargeTest
 public class Espresso_ClearDoneTasks {
 
-    String noteName1, noteName2, noteName3, noteName4;
+    String[] noteNames;
 
     @Rule
     public ActivityTestRule<ActivityList> myActivityRule =
@@ -41,10 +41,7 @@ public class Espresso_ClearDoneTasks {
 
     @Before
     public void initStrings(){
-        noteName1 = "prepare food";
-        noteName2 = "take dogs out";
-        noteName3 = "water plants";
-        noteName4 = "sleep";
+        noteNames = new String[] {"prepare food", "take dogs out", "water plants", "sleep"};
     }
 
     @Test
@@ -52,7 +49,6 @@ public class Espresso_ClearDoneTasks {
 
         Helper.closeDrawer();
 
-        String[] noteNames = {noteName1, noteName2, noteName3, noteName4};
         Helper.createNotes(noteNames);
 
         //todo remove this assert, it is silly and not what we need
@@ -74,8 +70,10 @@ public class Espresso_ClearDoneTasks {
 
         //clear notes
         onView(withContentDescription("More options")).perform(click());
-        onView(withId(R.id.title)).perform(click());
-        onView(withId(android.R.id.button1)).perform(click());
+//        onView(withId(R.id.title)).perform(click());
+        onView(withText("Clear completed")).perform(click());
+//        onView(withId(android.R.id.button1)).perform(click());
+        onView(withText("OK")).perform(click());
 
         //check that the notes do not exist any more
         onView(withText(noteNames[0]))
@@ -93,6 +91,10 @@ public class Espresso_ClearDoneTasks {
                 ))
         );
     }
+
+
+
+
 
     public class CheckCheckBox implements ViewAction{
 

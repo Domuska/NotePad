@@ -51,6 +51,14 @@ public class Robotium_Helper {
         solo.enterText(editText, noteName);
     }
 
+    public static void createNotes(Solo solo,String[] noteNames){
+        for(int i = 0; i < noteNames.length; i++){
+            createNoteWithName(solo, noteNames[i]);
+            navigateUp(solo);
+        }
+
+    }
+
     public static void navigateUp(Solo solo){
         solo.clickOnActionBarHomeButton();
     }

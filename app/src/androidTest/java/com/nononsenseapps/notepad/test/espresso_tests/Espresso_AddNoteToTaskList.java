@@ -51,7 +51,6 @@ public class Espresso_AddNoteToTaskList {
         onView(withId(com.nononsenseapps.notepad.R.id.dialog_yes)).perform(click());
         onView(withId(com.nononsenseapps.notepad.R.id.drawer_layout)).perform(DrawerActions.open());
 
-
         //add the note
         Helper.openDrawer();
 
