@@ -15,6 +15,7 @@ import org.junit.runner.RunWith;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
@@ -50,6 +51,15 @@ public class Espresso_AddNoteWithReminder {
 
         onView(withContentDescription(Helper.NAVIGATE_UP_TEXT)).perform(click());
 
-        onView(withText(noteName1)).check(matches(withText(noteName1)));
+        onView(withText(noteName1)).perform(click());
+
+        String currentMonth = Helper.getCurrentMonthName();
+
+        //onView(withText(taskListName)).check(matches(isDisplayed()));
+        onView(withText(currentMonth)).check(matches(isDisplayed()));
+
+//        onView(withText(noteName1)).check(matches(withText(noteName1)));
+
+
     }
 }
