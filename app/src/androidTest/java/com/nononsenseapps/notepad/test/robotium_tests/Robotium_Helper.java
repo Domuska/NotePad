@@ -69,8 +69,9 @@ public class Robotium_Helper {
     }
 
 
+    //there could be smarter way to do this and the method below, but oh well
     @NonNull
-    public static String getCurrentMonthName() {
+    public static String getCurrentMonthNameAndDay() {
         String date = DateFormat.getDateInstance(DateFormat.LONG).format(new Date());
 
         int firstSpaceIndex = date.indexOf(" ");
@@ -80,6 +81,17 @@ public class Robotium_Helper {
 
         //trim the trailing , from the string
         dateReturned = dateReturned.substring(0, dateReturned.length()-1);
+
+        return dateReturned;
+    }
+
+    @NonNull
+    public static String getDateAndMonth(){
+
+        String date = getCurrentMonthNameAndDay();
+
+        String dateReturned = date.substring(0, date.indexOf(" "));
+        dateReturned += date.substring(date.indexOf(" "), date.length());
 
         return dateReturned;
     }

@@ -1,20 +1,15 @@
 package com.nononsenseapps.notepad.test.robotium_tests;
 
-import android.support.annotation.NonNull;
 import android.test.ActivityInstrumentationTestCase2;
 
 
 import com.nononsenseapps.notepad.R;
 import com.nononsenseapps.notepad.activities.ActivityList;
-import com.nononsenseapps.notepad.prefs.MainPrefs;
 import com.robotium.solo.Solo;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.Locale;
 import java.util.SimpleTimeZone;
 import java.util.TimeZone;
 
@@ -91,7 +86,7 @@ public class Robotium_AddNoteWithReminder extends ActivityInstrumentationTestCas
 //                + calendar.get(Calendar.YEAR));
 
 
-        String month = Robotium_Helper.getCurrentMonthName();
+        String month = Robotium_Helper.getCurrentMonthNameAndDay();
         Boolean rightMonthDisplayed  = solo.searchText(month);
 
         assertTrue("Display right month("+month+")", rightMonthDisplayed);
