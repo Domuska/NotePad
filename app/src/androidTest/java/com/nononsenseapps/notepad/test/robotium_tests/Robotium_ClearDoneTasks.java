@@ -54,12 +54,12 @@ public class Robotium_ClearDoneTasks extends ActivityInstrumentationTestCase2<Ac
 
         //not the most compact way to do it, but maybe the sturdiest
         RecyclerView recyclerView = (RecyclerView) solo.getView(android.R.id.list);
-        View view = recyclerView.getChildAt(1);
-        CheckBox checkBox = (CheckBox) view.findViewById(R.id.checkbox);
+        View rowView = recyclerView.getChildAt(1);
+        CheckBox checkBox = (CheckBox) rowView.findViewById(R.id.checkbox);
         solo.clickOnView(checkBox);
 
-        view = recyclerView.getChildAt(3);
-        checkBox = (CheckBox) view.findViewById(R.id.checkbox);
+        rowView = recyclerView.getChildAt(3);
+        checkBox = (CheckBox) rowView.findViewById(R.id.checkbox);
         solo.clickOnView(checkBox);
 
         //get the overflow menu button by its' content description
