@@ -67,7 +67,7 @@ public class Espresso_FaultyTests {
     }
 
     @Test
-    public void testSearchForElementWithIDShouldFailOnCompileTime(){
+    public void testSearchForElementWithFaultyID(){
 //        onView(withId(R.id.faulty_id)).perform(click());
     }
 
