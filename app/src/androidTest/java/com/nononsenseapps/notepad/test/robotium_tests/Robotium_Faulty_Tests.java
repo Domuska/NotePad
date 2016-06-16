@@ -57,7 +57,7 @@ public class Robotium_Faulty_Tests extends ActivityInstrumentationTestCase2<Acti
         assertFalse("should have failed before this", true);
     }
 
-    public void testSearchForElementWithIDShouldFailOnCompileTime(){
+    public void testSearchForElementWithFaultyID(){
 //        solo.clickOnView(solo.getView(R.id.faulty_id));
     }
 
