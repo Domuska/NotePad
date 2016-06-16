@@ -54,26 +54,6 @@ public class Espresso_AddManyNotesAndScroll {
         //assert that the new fragment was launched
         onView(withId(R.id.taskText)).check(matches(isDisplayed()));
 
-//        onView(withId(android.R.id.list))
-
-                //onView(withText(noteName1)).check(matches(withText(noteName1)));
-        /*
-        private void clickCheckBoxAt(int position) {
-        onView(withId(android.R.id.list)).perform(
-                RecyclerViewActions.actionOnItemAtPosition(position, Helper.MyViewAction.clickChildViewWithId(
-                        R.id.checkbox
-                ))
-        );
-    }
-         */
-    }
-
-    private void clickElementAt(int position){
-        onView(withId(android.R.id.list)).perform(
-                RecyclerViewActions.actionOnItemAtPosition(position, Helper.MyViewAction.clickChildViewWithId(
-                        android.R.id.text1
-                ))
-        );
     }
 
 }
