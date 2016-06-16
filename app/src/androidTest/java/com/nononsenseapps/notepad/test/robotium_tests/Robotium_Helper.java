@@ -95,4 +95,11 @@ public class Robotium_Helper {
 
         return dateReturned;
     }
+
+    public static String getCurrentMonth(){
+        String date = DateFormat.getDateInstance(DateFormat.LONG).format(new Date());
+
+        int firstSpaceIndex = date.indexOf(" ");
+        return date.substring(0, firstSpaceIndex);
+    }
 }

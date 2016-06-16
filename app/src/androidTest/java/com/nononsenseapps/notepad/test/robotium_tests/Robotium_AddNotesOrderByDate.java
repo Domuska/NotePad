@@ -2,6 +2,7 @@ package com.nononsenseapps.notepad.test.robotium_tests;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.view.View;
+import android.widget.DatePicker;
 
 import com.nononsenseapps.notepad.R;
 import com.nononsenseapps.notepad.activities.ActivityList;
@@ -13,6 +14,8 @@ public class Robotium_AddNotesOrderByDate extends ActivityInstrumentationTestCas
 
     private Solo solo;
     String[] noteNames = {"prepare food", "take dogs out", "water plants", "sleep"};
+    String day3, day8, day15, day21;
+    String ORDER_BY_DUE_DATE;
 
     private static final String LAUNCHER_ACTIVITY_FULL_CLASSNAME =
             "com.nononsenseapps.notepad.ActivityList";
@@ -25,6 +28,13 @@ public class Robotium_AddNotesOrderByDate extends ActivityInstrumentationTestCas
     public void setUp() throws Exception {
         solo = new Solo(getInstrumentation());
         getActivity();
+
+        String currentMonth = Robotium_Helper.getCurrentMonth();
+        day3 = "03 " + currentMonth + " 2016";
+        day8 = "08 " + currentMonth + " 2016";
+        day15 = "15 " + currentMonth + " 2016";
+        day21 = "21 " + currentMonth + " 2016";
+        ORDER_BY_DUE_DATE = getActivity().getResources().getString(R.string.sort_list_due);
     }
 
     @Override
@@ -37,43 +47,58 @@ public class Robotium_AddNotesOrderByDate extends ActivityInstrumentationTestCas
 
         Robotium_Helper.closeDrawer(solo);
 
-        Robotium_Helper.createNoteWithName(solo, noteNames[0]);
-        solo.clickOnView(solo.getView(R.id.dueDateBox));
+        String[] expectedOrder = new String[]
+                {noteNames[2], noteNames[3], noteNames[1], noteNames[0] };
 
-        solo.getView(R.id.animator);
+        createNoteWithNameAndDueDate(noteNames[0], day21);
+//        createNoteWithNameAndDueDate(noteNames[1], day15);
+//        createNoteWithNameAndDueDate(noteNames[2], day3);
+//        createNoteWithNameAndDueDate(noteNames[3], day8);
 
-        List<View> views = solo.getViews();
-        String currentDate = Robotium_Helper.getDateAndMonth();
+        solo.clickOnView(solo.getView(R.id.menu_sort));
+        solo.clickOnText(ORDER_BY_DUE_DATE);
 
-        //todo elä käytä oikeita päivämääriä vaan käytä joka kuusta vaikka 15. 16. 17. 18. pvä
-
-        for(int i = 0; i < views.size(); i++){
-            View v = views.get(i);
-            if(v.getContentDescription() != null &&
-                    v.getContentDescription().equals(currentDate)){
-                solo.clickOnView(v);
-            }
-        }
-        solo.clickOnView(solo.getView(R.id.done));
-        Robotium_Helper.navigateUp(solo);
+        View recyclerView = solo.getView(android.R.id.list);
+        List<View> views = solo.getViews(recyclerView);
 
 
-//        addNoteAndDueDate(noteNames[0]);
-//        addNoteAndDueDate(noteNames[1]);
-//        addNoteAndDueDate(noteNames[2]);
-//        addNoteAndDueDate(noteNames[3]);
-
-
+        assertEquals(255, day8);
+        assertEquals(255, views.size());
 
 
     }
 
-    private void addNoteAndDueDate(String noteName) {
+    private void createNoteWithNameAndDueDate(String noteName, String dueDate) {
         Robotium_Helper.createNoteWithName(solo, noteName);
         solo.clickOnView(solo.getView(R.id.dueDateBox));
-        solo.clickOnView(solo.getView(R.id.done));
 
+//        solo.setDatePicker(0, 2016, 06, 12);
+        DatePicker datePicker = (DatePicker) solo.getView(android.R.id.content);
+        datePicker.updateDate(2016, 6, 13);
+//        List<View> views = solo.getViews();
+
+
+        //search for the view with content description and click it
+//        for(int i = 0; i < views.size(); i++){
+//            View v = views.get(i);
+//            if(v.getContentDescription() != null &&
+//                    v.getContentDescription().toString().equals(dueDate)){
+//                solo.clickOnView(v);
+//            }
+//        }
+        solo.clickOnView(solo.getView(R.id.done));
+        solo.waitForDialogToClose();
         Robotium_Helper.navigateUp(solo);
+
     }
+
+
+//    private void addNoteAndDueDate(String noteName) {
+//        Robotium_Helper.createNoteWithName(solo, noteName);
+//        solo.clickOnView(solo.getView(R.id.dueDateBox));
+//        solo.clickOnView(solo.getView(R.id.done));
+//
+//        Robotium_Helper.navigateUp(solo);
+//    }
 
 }

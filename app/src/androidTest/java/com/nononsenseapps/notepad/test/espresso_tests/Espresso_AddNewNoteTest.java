@@ -1,6 +1,7 @@
 package com.nononsenseapps.notepad.test.espresso_tests;
 
 
+import android.support.test.espresso.contrib.PickerActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
