@@ -3,10 +3,12 @@ package com.nononsenseapps.notepad.test.espresso_tests;
 import android.support.test.espresso.contrib.DrawerActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import android.support.v7.widget.RecyclerView;
 import android.test.suitebuilder.annotation.LargeTest;
 import com.nononsenseapps.notepad.R;
 
 import com.nononsenseapps.notepad.activities.ActivityList;
+import com.nononsenseapps.notepad.test.Helper;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -19,6 +21,7 @@ import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static junit.framework.Assert.assertEquals;
 
 
 @RunWith(AndroidJUnit4.class)
@@ -42,6 +45,8 @@ public class Espresso_AddTaskListTest {
     @Test
     public void testAddTaskListCheckItIsAddedToDrawer(){
 
+        Helper.closeDrawer();
+
         onView(withText("Create new"))
                 .perform(click());
 
@@ -51,6 +56,7 @@ public class Espresso_AddTaskListTest {
 
         //check that the new note is found and has the correct text
         onView(withText(taskListName)).check(matches(withText(taskListName)));
+
     }
 
 

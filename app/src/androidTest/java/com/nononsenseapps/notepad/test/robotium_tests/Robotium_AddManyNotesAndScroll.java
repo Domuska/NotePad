@@ -19,9 +19,6 @@ public class Robotium_AddManyNotesAndScroll extends ActivityInstrumentationTestC
                     "  ", "     "
             };
 
-    private String[] notes = {"aaaaaaaaaa", "bbbbbbbb", "ccccccc", "dddddd", "eeeeeee",
-    "fffff", "gggggg", "hhhhhhh", "iiiiii", "jjjjjjj", "kkkkk", "mmmmmmm", "nnnnnnnnn", "oooooo",
-    "pppppp", "qqqqqq", "rrrrrrrr", "sssssss", "ttttttt", "uuuuuuuu", "wwwwwww", "xxxxxxxx"};
 
     private static final String LAUNCHER_ACTIVITY_FULL_CLASSNAME =
             "com.nononsenseapps.notepad.ActivityList";
@@ -58,8 +55,6 @@ public class Robotium_AddManyNotesAndScroll extends ActivityInstrumentationTestC
             }
             canBeScrolled = solo.scrollDownRecyclerView(0);
         }
-
-//        solo.waitForActivity("ActivityList1", 200000);
 
         assertTrue("note found in the list", noteFound);
     }
