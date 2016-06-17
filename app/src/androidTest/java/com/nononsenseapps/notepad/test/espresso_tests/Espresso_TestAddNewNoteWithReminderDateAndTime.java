@@ -41,24 +41,24 @@ public class Espresso_TestAddNewNoteWithReminderDateAndTime {
         Helper.closeDrawer();
         Helper.createNoteWithName(noteName1);
 
+        //add reminder
         onView(withId(com.nononsenseapps.notepad.R.id.notificationAdd)).perform(click());
 
+        //add date
         onView(withId(com.nononsenseapps.notepad.R.id.notificationDate)).perform(click());
         onView(withId(com.nononsenseapps.notepad.R.id.done)).perform(click());
 
+        //add time
         onView(withId(com.nononsenseapps.notepad.R.id.notificationTime)).perform(click());
         onView(withId(com.nononsenseapps.notepad.R.id.done_button)).perform(click());
 
-        onView(withContentDescription(Helper.NAVIGATE_UP_TEXT)).perform(click());
+        Helper.navigateUp();
 
         onView(withText(noteName1)).perform(click());
 
+        //check that current month is visible
         String currentMonth = Helper.getCurrentMonthName();
-
-        //onView(withText(taskListName)).check(matches(isDisplayed()));
         onView(withText(currentMonth)).check(matches(isDisplayed()));
-
-//        onView(withText(noteName1)).check(matches(withText(noteName1)));
 
 
     }
