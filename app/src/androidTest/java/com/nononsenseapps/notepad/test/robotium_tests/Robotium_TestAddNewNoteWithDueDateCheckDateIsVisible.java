@@ -35,11 +35,12 @@ public class Robotium_TestAddNewNoteWithDueDateCheckDateIsVisible extends Activi
         Robotium_Helper.closeDrawer(solo);
 
         Robotium_Helper.createNoteWithName(solo, noteName1);
+
+        //add the due date
         solo.clickOnView(solo.getView(R.id.dueDateBox));
         solo.clickOnView(solo.getView(R.id.done));
 
         Robotium_Helper.navigateUp(solo);
-
 
         //we assert that it is good enough to know that the visibility is set to VISIBLE,
         //we cannot however be sure that the view is actually visible (not obscured by something)

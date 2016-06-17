@@ -27,6 +27,7 @@ public class Robotium_Helper {
         int toY = fromY;
 
         solo.drag(fromX, toX, fromY, toY, 2);
+        solo.waitForText("Notes");
     }
 
     //sending solo.setNavigationDrawer(Solo.OPENED) does not work, do this, credit to swanson on stackoverflow
