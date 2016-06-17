@@ -21,7 +21,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class Espresso_AddNewNoteTest {
+public class Espresso_TestAddNewNoteShouldShowNameInNotesScreen {
 
     private String noteName1;
 

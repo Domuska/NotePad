@@ -23,7 +23,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class Espresso_AddManyNotesAndScroll {
+public class Espresso_TestAddBigNumberOfNotesScrollDownAndDeleteOne {
 
     private String[] noteNameList =
             {"prepare food", "take dogs out", "water plants", "sleep",
@@ -40,7 +40,7 @@ public class Espresso_AddManyNotesAndScroll {
             new ActivityTestRule<ActivityList>(ActivityList.class);
 
     @Test
-    public void addBigNumberOfNotesScrollDownAndDeleteOne(){
+    public void testAddBigNumberOfNotesScrollDownAndDeleteOne(){
 
         Helper.closeDrawer();
 

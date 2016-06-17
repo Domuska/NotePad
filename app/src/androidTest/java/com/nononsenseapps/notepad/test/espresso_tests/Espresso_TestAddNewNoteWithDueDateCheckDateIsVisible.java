@@ -25,7 +25,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class Espresso_AddNoteAddDueDate {
+public class Espresso_TestAddNewNoteWithDueDateCheckDateIsVisible {
 
     private String noteName1;
 

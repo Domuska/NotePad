@@ -22,7 +22,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class Espresso_AddNoteWithReminder {
+public class Espresso_TestAddNewNoteWithReminderDateAndTime {
 
     private String noteName1;
 
