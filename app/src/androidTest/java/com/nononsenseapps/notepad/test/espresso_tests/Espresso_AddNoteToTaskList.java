@@ -41,8 +41,6 @@ public class Espresso_AddNoteToTaskList {
     @Test
     public void testAddNoteToTaskList(){
 
-        Helper.openDrawer();
-
         //create the task list
         onView(withText("Create new"))
                 .perform(click());

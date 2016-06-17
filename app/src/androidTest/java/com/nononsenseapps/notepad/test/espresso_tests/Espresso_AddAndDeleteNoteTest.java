@@ -18,6 +18,9 @@ import static android.support.test.espresso.Espresso.onView;
 
 import static android.support.test.espresso.action.ViewActions.click;
 
+import static android.support.test.espresso.assertion.ViewAssertions.doesNotExist;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
@@ -50,6 +53,14 @@ public class Espresso_AddAndDeleteNoteTest {
 
         onView(withText(noteName1)).perform(click());
         onView(withId(R.id.menu_delete)).perform(click());
+        onView(withId(android.R.id.button1)).perform(click());
+
+        //assert that we're back in the list
+        onView(withText("Notes")).check(matches(isDisplayed()));
+
+        //check that the view is not visible
+        onView(withText(noteName1)).check(doesNotExist());
+
     }
 
 

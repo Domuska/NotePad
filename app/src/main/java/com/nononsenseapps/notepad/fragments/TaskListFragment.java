@@ -827,6 +827,7 @@ public class TaskListFragment extends Fragment
           holder.date.setVisibility(View.GONE);
         } else {
           holder.date.setVisibility(View.VISIBLE);
+//          holder.date.setVisibility(View.INVISIBLE);
           holder.date.setTimeText(cursor.getLong(cursor.getColumnIndex(Task.Columns.DUE)));
         }
 
