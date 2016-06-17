@@ -11,19 +11,20 @@ import com.robotium.solo.Solo;
 
 import java.util.List;
 
-public class Robotium_ClearDoneTasks extends ActivityInstrumentationTestCase2<ActivityList> {
+public class Robotium_TestCompletedTasksAreCleared extends ActivityInstrumentationTestCase2<ActivityList> {
 
     private Solo solo;
     String[] noteNames = {"prepare food", "take dogs out", "water plants", "sleep"};
     private String OVERFLOW_MENU_CONTENT_DESCRIPTION;
     private String OVERFLOW_MENU_TEXT;
     private String POPUP_OK;
+    private RecyclerView recyclerView;
 
     private static final String LAUNCHER_ACTIVITY_FULL_CLASSNAME =
             "com.nononsenseapps.notepad.ActivityList";
 
 
-    public Robotium_ClearDoneTasks(){
+    public Robotium_TestCompletedTasksAreCleared(){
         super(ActivityList.class);
     }
 
@@ -38,6 +39,7 @@ public class Robotium_ClearDoneTasks extends ActivityInstrumentationTestCase2<Ac
         OVERFLOW_MENU_TEXT =
                 getActivity().getResources().getText(R.string.menu_clearcompleted).toString();
 
+        recyclerView = (RecyclerView) getActivity().findViewById(android.R.id.list);
     }
 
     @Override
@@ -53,14 +55,8 @@ public class Robotium_ClearDoneTasks extends ActivityInstrumentationTestCase2<Ac
         Robotium_Helper.createNotes(solo, noteNames);
 
         //not the most compact way to do it, but maybe the sturdiest
-        RecyclerView recyclerView = (RecyclerView) solo.getView(android.R.id.list);
-        View rowView = recyclerView.getChildAt(1);
-        CheckBox checkBox = (CheckBox) rowView.findViewById(R.id.checkbox);
-        solo.clickOnView(checkBox);
-
-        rowView = recyclerView.getChildAt(3);
-        checkBox = (CheckBox) rowView.findViewById(R.id.checkbox);
-        solo.clickOnView(checkBox);
+        clickCheckBoxAt(1);
+        clickCheckBoxAt(3);
 
         //get the overflow menu button by its' content description
         List<View> views = solo.getViews();
@@ -68,13 +64,10 @@ public class Robotium_ClearDoneTasks extends ActivityInstrumentationTestCase2<Ac
 
             if(views.get(i).getContentDescription() != null &&
                     views.get(i).getContentDescription().equals(OVERFLOW_MENU_CONTENT_DESCRIPTION)) {
-
                 solo.clickOnView(views.get(i));
-
             }
         }
 
-//        solo.clickOnView(solo.getView(R.id.title));
         solo.clickOnText(OVERFLOW_MENU_TEXT);
         solo.clickOnText(POPUP_OK);
 
@@ -82,7 +75,11 @@ public class Robotium_ClearDoneTasks extends ActivityInstrumentationTestCase2<Ac
         assertFalse("note 2 found" , note2Found);
         boolean note4Found = solo.searchText(noteNames[2]);
         assertFalse("note 4 found", note4Found);
+    }
 
-
+    private void clickCheckBoxAt(int position){
+        View rowView = recyclerView.getChildAt(position);
+        CheckBox checkBox = (CheckBox) rowView.findViewById(R.id.checkbox);
+        solo.clickOnView(checkBox);
     }
 }

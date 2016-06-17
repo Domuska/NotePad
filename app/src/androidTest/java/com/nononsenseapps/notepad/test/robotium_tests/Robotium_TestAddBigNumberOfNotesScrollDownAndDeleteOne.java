@@ -6,7 +6,7 @@ import com.nononsenseapps.notepad.activities.ActivityList;
 import com.nononsenseapps.notepad.test.Helper;
 import com.robotium.solo.Solo;
 
-public class Robotium_AddManyNotesAndScroll extends ActivityInstrumentationTestCase2<ActivityList> {
+public class Robotium_TestAddBigNumberOfNotesScrollDownAndDeleteOne extends ActivityInstrumentationTestCase2<ActivityList> {
 
     private Solo solo;
     private String[] noteNameList =
@@ -24,7 +24,7 @@ public class Robotium_AddManyNotesAndScroll extends ActivityInstrumentationTestC
             "com.nononsenseapps.notepad.ActivityList";
 
 
-    public Robotium_AddManyNotesAndScroll(){
+    public Robotium_TestAddBigNumberOfNotesScrollDownAndDeleteOne(){
         super(ActivityList.class);
     }
 

@@ -13,7 +13,7 @@ import java.util.GregorianCalendar;
 import java.util.SimpleTimeZone;
 import java.util.TimeZone;
 
-public class Robotium_AddNoteWithReminder extends ActivityInstrumentationTestCase2<ActivityList> {
+public class Robotium_TestAddNewNoteWithReminderDateAndTime extends ActivityInstrumentationTestCase2<ActivityList> {
 
 
     private Solo solo;
@@ -23,7 +23,7 @@ public class Robotium_AddNoteWithReminder extends ActivityInstrumentationTestCas
             "com.nononsenseapps.notepad.ActivityList";
 
 
-    public Robotium_AddNoteWithReminder(){
+    public Robotium_TestAddNewNoteWithReminderDateAndTime(){
         super(ActivityList.class);
     }
 

@@ -7,7 +7,7 @@ import com.nononsenseapps.notepad.R;
 import com.nononsenseapps.notepad.activities.ActivityList;
 import com.robotium.solo.Solo;
 
-public class Robotium_AddTaskListAndDeleteItTest extends ActivityInstrumentationTestCase2<ActivityList> {
+public class Robotium_TestAddTaskListCheckItIsAddedToDrawer extends ActivityInstrumentationTestCase2<ActivityList> {
 
     private Solo solo;
     private String taskListName = "a random task list";
@@ -16,7 +16,7 @@ public class Robotium_AddTaskListAndDeleteItTest extends ActivityInstrumentation
             "com.nononsenseapps.notepad.ActivityList";
 
 
-    public Robotium_AddTaskListAndDeleteItTest(){
+    public Robotium_TestAddTaskListCheckItIsAddedToDrawer(){
         super(ActivityList.class);
     }
 
@@ -31,7 +31,7 @@ public class Robotium_AddTaskListAndDeleteItTest extends ActivityInstrumentation
         super.tearDown();
     }
 
-    public void testCreateTaskListAndDeleteIt(){
+    public void testAddTaskListCheckItIsAddedToDrawer(){
 
         solo.clickOnText("Create new");
 
@@ -43,14 +43,7 @@ public class Robotium_AddTaskListAndDeleteItTest extends ActivityInstrumentation
         solo.clickOnView(solo.getView(R.id.dialog_yes));
         Robotium_Helper.openDrawer(solo);
 
-        solo.clickLongOnText(taskListName);
-
-        solo.clickOnView(solo.getView(R.id.deleteButton));
-
-        solo.clickOnText("OK");
-
-        boolean taskListFound = solo.searchText(taskListName);
-
-        assertFalse("task list found", taskListFound);
+        boolean taskListFound = solo.searchText(taskListName, true);
+        assertTrue("task list found", taskListFound);
     }
 }

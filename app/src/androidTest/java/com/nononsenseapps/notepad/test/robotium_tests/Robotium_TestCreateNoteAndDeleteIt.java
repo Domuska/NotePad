@@ -2,11 +2,12 @@ package com.nononsenseapps.notepad.test.robotium_tests;
 
 import android.test.ActivityInstrumentationTestCase2;
 
+import com.nononsenseapps.notepad.R;
 import com.nononsenseapps.notepad.activities.ActivityList;
 import com.robotium.solo.Solo;
 
 
-public class Robotium_AddNewNoteTest extends ActivityInstrumentationTestCase2<ActivityList> {
+public class Robotium_TestCreateNoteAndDeleteIt extends ActivityInstrumentationTestCase2<ActivityList> {
 
     private Solo solo;
     private String noteName1 = "prepare food";
@@ -15,7 +16,7 @@ public class Robotium_AddNewNoteTest extends ActivityInstrumentationTestCase2<Ac
             "com.nononsenseapps.notepad.ActivityList";
 
 
-    public Robotium_AddNewNoteTest(){
+    public Robotium_TestCreateNoteAndDeleteIt(){
         super(ActivityList.class);
     }
 
@@ -36,12 +37,21 @@ public class Robotium_AddNewNoteTest extends ActivityInstrumentationTestCase2<Ac
         solo.waitForActivity("ActivityList", 1500);
 
         Robotium_Helper.closeDrawer(solo);
+
+        //add the note
         Robotium_Helper.createNoteWithName(solo, noteName1);
         Robotium_Helper.navigateUp(solo);
 
-        boolean noteFound = solo.searchText(noteName1);
-        assertTrue("Note is found", noteFound);
+        //delete the note
+        solo.clickOnText(noteName1);
+        solo.clickOnView(solo.getView(R.id.menu_delete));
+        solo.clickOnView(solo.getView(android.R.id.button1));
 
+        //assert that we're back on the list
+        solo.waitForText("Notes");
+
+        boolean noteFound = solo.waitForText(noteName1, 0, 5);
+        assertFalse("note found", noteFound);
     }
 
 }

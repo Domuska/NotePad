@@ -1,14 +1,13 @@
 package com.nononsenseapps.notepad.test.robotium_tests;
 
 import android.test.ActivityInstrumentationTestCase2;
+import android.view.View;
 
 import com.nononsenseapps.notepad.R;
 import com.nononsenseapps.notepad.activities.ActivityList;
 import com.robotium.solo.Solo;
 
-
-public class Robotium_AddAndDeleteNoteTest extends ActivityInstrumentationTestCase2<ActivityList> {
-
+public class Robotium_TestAddNewNoteWithDueDateCheckDateIsVisible extends ActivityInstrumentationTestCase2<ActivityList> {
     private Solo solo;
     private String noteName1 = "prepare food";
 
@@ -16,7 +15,7 @@ public class Robotium_AddAndDeleteNoteTest extends ActivityInstrumentationTestCa
             "com.nononsenseapps.notepad.ActivityList";
 
 
-    public Robotium_AddAndDeleteNoteTest(){
+    public Robotium_TestAddNewNoteWithDueDateCheckDateIsVisible(){
         super(ActivityList.class);
     }
 
@@ -31,22 +30,24 @@ public class Robotium_AddAndDeleteNoteTest extends ActivityInstrumentationTestCa
         super.tearDown();
     }
 
-
-    public void testCreateNoteAndDeleteIt() throws Exception{
-
-        solo.waitForActivity("ActivityList", 1500);
+    public void testAddNewNoteWithDueDateCheckDateIsVisible(){
 
         Robotium_Helper.closeDrawer(solo);
+
         Robotium_Helper.createNoteWithName(solo, noteName1);
+        solo.clickOnView(solo.getView(R.id.dueDateBox));
+        solo.clickOnView(solo.getView(R.id.done));
+
         Robotium_Helper.navigateUp(solo);
 
-        solo.clickOnText(noteName1);
 
-        solo.clickOnView(solo.getView(R.id.menu_delete));
-        solo.clickOnView(solo.getView(android.R.id.button1));
+        //we assert that it is good enough to know that the visibility is set to VISIBLE,
+        //we cannot however be sure that the view is actually visible (not obscured by something)
+        View dueDateView = solo.getView(R.id.date);
 
-        boolean noteFound = solo.searchText(noteName1);
-        assertFalse("note found", noteFound);
+        assertEquals("Due date view is visible",
+                dueDateView.getVisibility(),
+                View.VISIBLE);
     }
 
 }
