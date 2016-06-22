@@ -58,6 +58,8 @@ public class Espresso_TestAddNewNoteWithReminderDateAndTime {
 
         //check that current month is visible
         String currentMonth = Helper.getCurrentMonthName();
+
+        //todo should we just make sure in here that the text field is not empty, not worry about correct date?
         onView(withText(currentMonth)).check(matches(isDisplayed()));
 
 

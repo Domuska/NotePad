@@ -4,7 +4,9 @@ import com.nononsenseapps.notepad.*;
 import com.nononsenseapps.notepad.database.Task;
 import com.nononsenseapps.notepad.database.TaskList;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
 import android.support.test.espresso.UiController;
@@ -12,11 +14,14 @@ import android.support.test.espresso.ViewAction;
 import android.support.test.espresso.ViewInteraction;
 import android.support.test.espresso.contrib.DrawerActions;
 import android.support.test.espresso.contrib.RecyclerViewActions;
+import android.support.test.runner.lifecycle.ActivityLifecycleMonitorRegistry;
+import android.support.test.runner.lifecycle.Stage;
 import android.view.View;
 
 import org.hamcrest.Matcher;
 
 import java.text.DateFormat;
+import java.util.Collection;
 import java.util.Date;
 
 import static android.support.test.espresso.Espresso.onView;
@@ -24,6 +29,7 @@ import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.isRoot;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 public class Helper {
@@ -87,6 +93,8 @@ public class Helper {
 		return dateReturned;
 	}
 
+
+
 	public static class MyViewAction{
 
 		public static ViewAction clickChildViewWithId(final int id){
@@ -110,29 +118,5 @@ public class Helper {
 			};
 		}
 	}
-
-	public static ViewInteraction scrollRecyclerViewToText(String noteName){
-
-//		return onView(withClassName(endsWith("RecyclerView")))
-//				.perform(RecyclerViewActions.scrollTo(
-//						withText(noteName)
-//				));
-
-		onView(withText(noteName));
-
-		return onView(withContentDescription("List of tasks"))
-				.perform(RecyclerViewActions.scrollTo(
-						withText(noteName)
-				));
-
-//		return onView(withContentDescription("List of tasks"))
-//				.perform(RecyclerViewActions.scrollToPosition(5)
-//				);
-	}
-
-
-
-
-
 
 }
