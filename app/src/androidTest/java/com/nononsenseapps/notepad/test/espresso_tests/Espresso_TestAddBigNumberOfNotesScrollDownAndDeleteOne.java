@@ -50,6 +50,8 @@ public class Espresso_TestAddBigNumberOfNotesScrollDownAndDeleteOne {
                 hasDescendant(withText(noteNameList[0])), click()
         ));
 
+
+
         //assert that the new fragment was launched
         onView(withId(R.id.taskText)).check(matches(isDisplayed()));
 
