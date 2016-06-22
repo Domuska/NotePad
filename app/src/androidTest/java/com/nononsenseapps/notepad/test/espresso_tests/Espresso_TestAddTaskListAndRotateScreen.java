@@ -61,6 +61,6 @@ public class Espresso_TestAddTaskListAndRotateScreen {
 
         RecyclerViewActions.scrollTo(hasDescendant(withText(taskListName)));
         onView(withText(taskListName)).check(matches(isDisplayed()));
-        
+
     }
 }

@@ -58,7 +58,8 @@ public class Espresso_TestAddNotesOrderByDueDate {
 //        onView(withText("Due date")).perform(click());
         onView(withId(R.id.dueDateBox)).perform(click());
         onView(withClassName(Matchers.equalTo(DatePickerDialog.class.getName()))).perform(PickerActions.setDate(2016, 6, 27));
-
+        //todo eikö tämä voitas tehä vain niin että klikataan päiviä, ei huolehita kuukaudesta?
+        //content description: 23 June 2016
 
     }
 }
