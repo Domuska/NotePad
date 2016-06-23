@@ -92,8 +92,8 @@ public class Espresso_TEST_CreateNoteAddDueDate{
         Helper.createNotes(noteNames);
 
         //check some tasks done
-        clickCheckBoxAt(1);
-        clickCheckBoxAt(3);
+       // clickCheckBoxAt(1);
+       // clickCheckBoxAt(3);
 
         //clear notes
         onView(withContentDescription("More options")).perform(click());
@@ -108,13 +108,13 @@ public class Espresso_TEST_CreateNoteAddDueDate{
 
     }
 
-    private void clickCheckBoxAt(int position) {
+    /*private void clickCheckBoxAt(int position) {
         onView(withId(android.R.id.list)).perform(
                 RecyclerViewActions.actionOnItemAtPosition(position, Helper.MyViewAction.clickChildViewWithId(
                         R.id.checkbox
                 ))
         );
-    }
+    }*/
 
     private static final class ActivityFinisher implements Runnable {
 
