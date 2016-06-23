@@ -58,7 +58,6 @@ public class Espresso_TestAddTaskListAndRotateScreen {
 
         //make sure the task list is still visible
 
-
         RecyclerViewActions.scrollTo(hasDescendant(withText(taskListName)));
         onView(withText(taskListName)).check(matches(isDisplayed()));
 
