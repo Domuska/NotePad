@@ -44,14 +44,9 @@ public class Espresso_TestCreateTaskListAndDeleteIt {
     @Test
     public void testCreateTaskListAndDeleteIt(){
 
-        onView(withText("Create new")).perform(click());
-        onView(withId(R.id.titleField)).perform(typeText(taskListName));
-        onView(withId(R.id.dialog_yes)).perform(click());
+        Helper.createTaskList(taskListName);
 
         Helper.openDrawer();
-
-        onView(withText(taskListName))
-                .check(matches(withText(taskListName)));
 
         onView(withText(taskListName))
                 .perform(longClick());

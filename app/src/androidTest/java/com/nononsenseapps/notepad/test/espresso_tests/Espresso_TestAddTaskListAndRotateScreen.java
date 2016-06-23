@@ -8,6 +8,7 @@ import android.test.suitebuilder.annotation.LargeTest;
 
 import com.nononsenseapps.notepad.R;
 import com.nononsenseapps.notepad.activities.ActivityList;
+import com.nononsenseapps.notepad.test.Helper;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -44,11 +45,7 @@ public class Espresso_TestAddTaskListAndRotateScreen {
     @Test
     public void testAddTaskListAndRotateScreen(){
 
-        onView(withText("Create new"))
-                .perform(click());
-
-        onView(withId(com.nononsenseapps.notepad.R.id.titleField)).perform(typeText(taskListName));
-        onView(withId(com.nononsenseapps.notepad.R.id.dialog_yes)).perform(click());
+        Helper.createTaskList(taskListName);
 
         onView(withId(com.nononsenseapps.notepad.R.id.drawer_layout)).perform(DrawerActions.open());
 

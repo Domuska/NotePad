@@ -44,11 +44,7 @@ public class Espresso_TestAddTaskListCheckItIsAddedToDrawer {
     @Test
     public void testAddTaskListCheckItIsAddedToDrawer(){
 
-        onView(withText("Create new"))
-                .perform(click());
-
-        onView(withId(R.id.titleField)).perform(typeText(taskListName));
-        onView(withId(R.id.dialog_yes)).perform(click());
+        Helper.createTaskList(taskListName);
         Helper.openDrawer();
 
         //check that the new note is found and has the correct text

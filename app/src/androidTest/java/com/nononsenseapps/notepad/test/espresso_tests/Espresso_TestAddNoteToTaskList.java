@@ -41,19 +41,13 @@ public class Espresso_TestAddNoteToTaskList {
     @Test
     public void testAddNoteToTaskList(){
 
-        //create the task list
-        onView(withText("Create new"))
-                .perform(click());
+        Helper.createTaskList(taskListName);
 
-        onView(withId(com.nononsenseapps.notepad.R.id.titleField)).perform(typeText(taskListName));
-        onView(withId(com.nononsenseapps.notepad.R.id.dialog_yes)).perform(click());
-        onView(withId(com.nononsenseapps.notepad.R.id.drawer_layout)).perform(DrawerActions.open());
-
+        //make sure the correct task list is opened
+        Helper.openDrawer();
+        onView(withText(taskListName)).perform(click());
 
         //add the note
-        Helper.openDrawer();
-
-        onView(withText(taskListName)).perform(click());
         Helper.createNoteWithName(noteName1);
         Helper.navigateUp();
 
