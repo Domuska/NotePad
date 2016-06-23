@@ -3,6 +3,7 @@ package com.nononsenseapps.notepad.test;
 import com.nononsenseapps.notepad.*;
 import com.nononsenseapps.notepad.database.Task;
 import com.nononsenseapps.notepad.database.TaskList;
+import com.nononsenseapps.notepad.R;
 
 
 import android.content.Context;
@@ -11,6 +12,7 @@ import android.database.Cursor;
 import android.support.annotation.NonNull;
 
 import android.support.test.espresso.contrib.DrawerActions;
+import android.support.test.espresso.contrib.RecyclerViewActions;
 
 
 import java.text.DateFormat;
@@ -20,6 +22,7 @@ import java.util.Date;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.typeText;
+import static android.support.test.espresso.matcher.ViewMatchers.hasDescendant;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
@@ -72,8 +75,10 @@ public class Helper {
 	 * @param taskListName name of the task list
      */
 	public static void createTaskList(String taskListName){
-		onView(withText("Create new"))
-				.perform(click());
+		onView(withId(R.id.navigation_drawer)).perform(RecyclerViewActions.actionOnItem(
+				hasDescendant(withText("Create new")), click()
+		));
+
 		onView(withId(com.nononsenseapps.notepad.R.id.titleField)).perform(typeText(taskListName));
 		onView(withId(com.nononsenseapps.notepad.R.id.dialog_yes)).perform(click());
 	}
