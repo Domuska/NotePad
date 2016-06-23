@@ -4,24 +4,17 @@ import com.nononsenseapps.notepad.*;
 import com.nononsenseapps.notepad.database.Task;
 import com.nononsenseapps.notepad.database.TaskList;
 
-import android.app.Activity;
+
 import android.content.Context;
-import android.content.pm.ActivityInfo;
+
 import android.database.Cursor;
 import android.support.annotation.NonNull;
-import android.support.test.espresso.UiController;
-import android.support.test.espresso.ViewAction;
-import android.support.test.espresso.ViewInteraction;
-import android.support.test.espresso.contrib.DrawerActions;
-import android.support.test.espresso.contrib.RecyclerViewActions;
-import android.support.test.runner.lifecycle.ActivityLifecycleMonitorRegistry;
-import android.support.test.runner.lifecycle.Stage;
-import android.view.View;
 
-import org.hamcrest.Matcher;
+import android.support.test.espresso.contrib.DrawerActions;
+
 
 import java.text.DateFormat;
-import java.util.Collection;
+
 import java.util.Date;
 
 import static android.support.test.espresso.Espresso.onView;
@@ -29,8 +22,8 @@ import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.matcher.ViewMatchers.isRoot;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+
 
 public class Helper {
 
@@ -74,6 +67,17 @@ public class Helper {
 		}
 	}
 
+	/**
+	 * Add a new task list. The drawer should be open when this is called
+	 * @param taskListName name of the task list
+     */
+	public static void createTaskList(String taskListName){
+		onView(withText("Create new"))
+				.perform(click());
+		onView(withId(com.nononsenseapps.notepad.R.id.titleField)).perform(typeText(taskListName));
+		onView(withId(com.nononsenseapps.notepad.R.id.dialog_yes)).perform(click());
+	}
+
 	public static void navigateUp(){
 		onView(withContentDescription(Helper.NAVIGATE_UP_TEXT)).perform(click());
 	}
@@ -92,6 +96,8 @@ public class Helper {
 
 		return dateReturned;
 	}
+
+
 
 
 
