@@ -69,6 +69,22 @@ public class Robotium_Helper {
         solo.clickOnActionBarHomeButton();
     }
 
+    /**
+     * Create a new task list, nav drawer needs to be open when this is called
+     * @param solo solo
+     * @param taskListName name of the task list
+     */
+    public static void createTaskList(Solo solo, String taskListName){
+
+        solo.scrollRecyclerViewToBottom(1);
+        solo.clickOnText("Create new");
+        solo.enterText(
+                (EditText)solo.getView(R.id.titleField),
+                taskListName
+        );
+        solo.clickOnView(solo.getView(R.id.dialog_yes));
+    }
+
 
     //there could be smarter way to do this and the method below, but oh well
     @NonNull

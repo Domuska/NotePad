@@ -56,7 +56,7 @@ public class Robotium_TestAddNewNoteWithReminderDateAndTime extends ActivityInst
 
         Robotium_Helper.navigateUp(solo);
 
-        //open note and check that date is visible
+        //open note and check that view with date is visible
         solo.clickOnText(noteName1);
         solo.hideSoftKeyboard();
         solo.getView(R.id.notificationDate);

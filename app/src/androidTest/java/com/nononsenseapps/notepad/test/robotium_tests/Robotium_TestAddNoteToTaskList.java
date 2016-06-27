@@ -35,14 +35,7 @@ public class Robotium_TestAddNoteToTaskList extends ActivityInstrumentationTestC
 
     public void testAddNoteToTaskList(){
 
-        //create the task list
-        solo.clickOnText("Create new");
-        solo.enterText(
-                (EditText)solo.getView(R.id.titleField),
-                taskListName
-        );
-        solo.clickOnView(solo.getView(R.id.dialog_yes));
-
+        Robotium_Helper.createTaskList(solo, taskListName);
 
         //add the note
         Robotium_Helper.openDrawer(solo);
