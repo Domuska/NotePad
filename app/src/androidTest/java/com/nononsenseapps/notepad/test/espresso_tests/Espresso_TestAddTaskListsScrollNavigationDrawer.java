@@ -53,8 +53,6 @@ public class Espresso_TestAddTaskListsScrollNavigationDrawer {
             Helper.openDrawer();
         }
 
-        //onView(withText(SETTINGS_TEXT)).perform(click());
-
         onView(withId(R.id.navigation_drawer)).perform(RecyclerViewActions.actionOnItem(
                 hasDescendant(withText(SETTINGS_TEXT)), click()
         ));

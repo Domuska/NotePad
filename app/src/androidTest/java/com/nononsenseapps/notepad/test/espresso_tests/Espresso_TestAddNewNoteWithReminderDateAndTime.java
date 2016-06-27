@@ -4,6 +4,7 @@ import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
 
+import com.nononsenseapps.notepad.R;
 import com.nononsenseapps.notepad.activities.ActivityList;
 import com.nononsenseapps.notepad.test.Helper;
 
@@ -54,13 +55,17 @@ public class Espresso_TestAddNewNoteWithReminderDateAndTime {
 
         Helper.navigateUp();
 
+        //check that the date field is visible
         onView(withText(noteName1)).perform(click());
-
+        onView(withId(R.id.notificationDate)).check(matches(isDisplayed()));
+        /*
         //check that current month is visible
         String currentMonth = Helper.getCurrentMonthName();
 
         //todo should we just make sure in here that the text field is not empty, not worry about correct date?
         onView(withText(currentMonth)).check(matches(isDisplayed()));
+        */
+
 
 
     }

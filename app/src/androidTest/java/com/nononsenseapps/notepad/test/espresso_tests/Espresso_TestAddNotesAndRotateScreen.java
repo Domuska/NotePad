@@ -52,10 +52,10 @@ public class Espresso_TestAddNotesAndRotateScreen {
         onView(isRoot()).perform(orientationPortrait());
 
         //check that textviews still show up
-        onView(withText(noteName1)).check(matches(isDisplayed()));
-        onView(withText(noteName2)).check(matches(isDisplayed()));
-        onView(withText(noteName3)).check(matches(isDisplayed()));
-        onView(withText(noteName4)).check(matches(isDisplayed()));
+        onView(withText(noteNames[0])).check(matches(isDisplayed()));
+        onView(withText(noteNames[1])).check(matches(isDisplayed()));
+        onView(withText(noteNames[2])).check(matches(isDisplayed()));
+        onView(withText(noteNames[3])).check(matches(isDisplayed()));
 
     }
 }

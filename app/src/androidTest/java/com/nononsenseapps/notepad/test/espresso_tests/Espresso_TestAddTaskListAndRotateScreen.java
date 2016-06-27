@@ -47,7 +47,7 @@ public class Espresso_TestAddTaskListAndRotateScreen {
 
         Helper.createTaskList(taskListName);
 
-        onView(withId(com.nononsenseapps.notepad.R.id.drawer_layout)).perform(DrawerActions.open());
+        Helper.openDrawer();
 
         // rotate to landscape and back to portrait
         onView(isRoot()).perform(orientationLandscape());
