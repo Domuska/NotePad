@@ -102,21 +102,36 @@ public class Robotium_Helper {
         return dateReturned;
     }
 
-    @NonNull
-    public static String getDateAndMonth(){
-
-        String date = getCurrentMonthNameAndDay();
-
-        String dateReturned = date.substring(0, date.indexOf(" "));
-        dateReturned += date.substring(date.indexOf(" "), date.length());
-
-        return dateReturned;
-    }
+//    @NonNull
+//    public static String getDateAndMonth(){
+//
+//        String date = getCurrentMonthNameAndDay();
+//
+//        String dateReturned = date.substring(0, date.indexOf(" "));
+//        dateReturned += date.substring(date.indexOf(" "), date.length());
+//
+//        return dateReturned;
+//    }
 
     public static String getCurrentMonth(){
         String date = DateFormat.getDateInstance(DateFormat.LONG).format(new Date());
 
         int firstSpaceIndex = date.indexOf(" ");
         return date.substring(0, firstSpaceIndex);
+    }
+
+    public static String getDateAndMonth(){
+
+        String date = DateFormat.getDateInstance(DateFormat.LONG).format(new Date());
+        //June 27, 2016
+        String month = date.substring(0, date.indexOf(" "));
+//        String day = date.substring(date.indexOf(" ")+1, date.indexOf(","));
+
+        //not the neatest way to do this, but should work until 2100 period
+        String year =  date.substring(date.indexOf("20"), date.indexOf("20")+4);
+
+
+        return month + " " + year;
+        //16 June 2016
     }
 }

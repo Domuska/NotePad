@@ -33,12 +33,15 @@ public class Robotium_TestAddTaskListsScrollNavigationDrawer extends ActivityIns
 
     public void testAddTaskListsScrollNavigationDrawer(){
 
+        //add the task lists
         for(String name : taskListNames){
             Robotium_Helper.createTaskList(solo, name);
             Robotium_Helper.openDrawer(solo);
         }
 
+        //scroll the nav drawer recycler view
         solo.scrollRecyclerViewToBottom(1);
+
         solo.clickOnText(SETTINGS_TEXT);
         solo.searchText(SETTINGS_APPEARANCE_TEXT);
     }
