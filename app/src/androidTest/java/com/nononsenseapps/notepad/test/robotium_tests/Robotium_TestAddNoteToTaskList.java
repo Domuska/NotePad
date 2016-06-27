@@ -49,7 +49,7 @@ public class Robotium_TestAddNoteToTaskList extends ActivityInstrumentationTestC
         solo.clickOnText(taskListName);
 
         Robotium_Helper.createNoteWithName(solo, noteName1);
-        Helper.navigateUp();
+        Robotium_Helper.navigateUp(solo);
 
         //make sure that the number of notes for the task list is actually 1
         // not the best way to do it, if there are other fields with "1" in them

@@ -58,39 +58,8 @@ public class Robotium_TestAddNewNoteWithReminderDateAndTime extends ActivityInst
 
         //open note and check that date is visible
         solo.clickOnText(noteName1);
+        solo.hideSoftKeyboard();
         solo.getView(R.id.notificationDate);
-
-
-
-
-        String[] ids = TimeZone.getAvailableIDs(+2 * 60 * 60 * 1000);
-
-        SimpleTimeZone finnishTimeZone = new SimpleTimeZone(+2*60*60*1000,ids[0]);
-
-        // set up rules for daylight savings time
-        finnishTimeZone.setStartRule(Calendar.APRIL, 1, Calendar.SUNDAY, 2 * 60 * 60 * 1000);
-        finnishTimeZone.setEndRule(Calendar.OCTOBER, -1, Calendar.SUNDAY, 2 * 60 * 60 * 1000);
-
-        // create a GregorianCalendar with the Finnish time zone
-        // and the current date and time
-        Calendar calendar = new GregorianCalendar(finnishTimeZone);
-        Date trialTime = new Date();
-        calendar.setTime(trialTime);
-
-        int monthNumber = calendar.get(Calendar.MONTH);
-        String monthName = getMonthNameFromNumber(monthNumber);
-
-//        assertEquals(1, monthName + " "
-//                + calendar.get(Calendar.MONTH) + " "
-//                + calendar.get(Calendar.DATE) + " "
-//                + calendar.get(Calendar.YEAR));
-
-
-        String month = Robotium_Helper.getCurrentMonthNameAndDay();
-        Boolean rightMonthDisplayed  = solo.searchText(month);
-
-        assertTrue("Display right month("+month+")", rightMonthDisplayed);
-
     }
 
 
