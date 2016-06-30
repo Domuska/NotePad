@@ -67,7 +67,7 @@ android {
 
   defaultConfig {
     applicationId "com.nononsenseapps.notepad"
-    minSdkVersion 14
+    minSdkVersion 18
     targetSdkVersion 23
     // 60000 to be above all previous versions before gitCommitCount was used
     versionCode 60000 + gitCommitCount
@@ -182,5 +182,8 @@ dependencies {
   androidTestCompile 'com.android.support.test.espresso:espresso-contrib:2.2.1'
   androidTestCompile 'com.android.support:support-v4:23.1.0'
   androidTestCompile 'com.android.support:recyclerview-v7:23.1.0'
+
+  //for uiautomator
+  androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
   
 }
