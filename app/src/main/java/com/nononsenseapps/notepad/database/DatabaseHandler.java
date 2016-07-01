@@ -49,11 +49,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	}
 
 
-	public static void resetDatabase(Context context){
-		context.deleteDatabase(DatabaseHandler.DATABASE_NAME);
-		singleton = new DatabaseHandler(context);
-		DatabaseHandler.getInstance(context).getWritableDatabase();
-	}
 
 	private static final int DATABASE_VERSION = 15;
 	public static final String DATABASE_NAME = "nononsense_notes.db";
@@ -76,6 +71,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		// Good idea to have the context that doesn't die with the window
 		this.context = context.getApplicationContext();
 		this.testPrefix = testPrefix;
+	}
+
+	/**
+	 * Used by Espresso tests to remove the whole database
+	 */
+	public static void resetDatabase(Context context){
+		context.deleteDatabase(DatabaseHandler.DATABASE_NAME);
+		singleton = new DatabaseHandler(context);
+		DatabaseHandler.getInstance(context).getWritableDatabase();
 	}
 
 	@Override
