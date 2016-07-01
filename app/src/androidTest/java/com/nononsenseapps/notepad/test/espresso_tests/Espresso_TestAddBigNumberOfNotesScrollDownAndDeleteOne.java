@@ -41,7 +41,6 @@ public class Espresso_TestAddBigNumberOfNotesScrollDownAndDeleteOne {
             new ActivityTestRule<ActivityList>(ActivityList.class);
 
     @Test
-    @Ignore
     public void testAddBigNumberOfNotesScrollDownAndDeleteOne(){
 
         Helper.closeDrawer();
