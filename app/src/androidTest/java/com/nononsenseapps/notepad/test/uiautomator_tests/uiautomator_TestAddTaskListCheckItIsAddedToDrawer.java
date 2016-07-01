@@ -18,11 +18,9 @@ import static junit.framework.Assert.assertNotNull;
 
 @RunWith(AndroidJUnit4.class)
 @SdkSuppress(minSdkVersion = 18)
-public class uiautomator_TestAddTaskListCheckItIsAddedToDrawer {
+public class uiautomator_TestAddTaskListCheckItIsAddedToDrawer extends BaseTestClass{
 
     private UiDevice device;
-    private static final String NOTEPAD_PACKAGE = "com.nononsenseapps.notepad";
-    private static final int LAUNCH_TIMEOUT = 5000;
 
     private String taskListName = "a random task list";
 

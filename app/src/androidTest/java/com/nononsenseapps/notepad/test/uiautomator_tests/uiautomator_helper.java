@@ -36,6 +36,9 @@ public class uiautomator_helper {
 
     public static void openDrawer(UiDevice device) throws Exception{
         device.findObject(By.descContains("Open navigation drawer")).click();
+
+        device.wait(Until.hasObject(By.res("com.nononsenseapps.notepad:id/navigation_drawer")),
+                LAUNCH_TIMEOUT);
     }
 
     public static void createNewNoteWithName(UiDevice device, String name) throws Exception{

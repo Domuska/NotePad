@@ -67,7 +67,7 @@ android {
 
   defaultConfig {
     applicationId "com.nononsenseapps.notepad"
-    minSdkVersion 18
+    minSdkVersion 21
     targetSdkVersion 23
     // 60000 to be above all previous versions before gitCommitCount was used
     versionCode 60000 + gitCommitCount
