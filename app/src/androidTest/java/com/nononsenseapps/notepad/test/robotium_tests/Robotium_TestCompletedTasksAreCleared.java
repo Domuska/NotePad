@@ -1,5 +1,7 @@
 package com.nononsenseapps.notepad.test.robotium_tests;
 
+import android.content.Context;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
 import android.test.ActivityInstrumentationTestCase2;
 import android.view.View;
@@ -7,6 +9,7 @@ import android.widget.CheckBox;
 
 import com.nononsenseapps.notepad.R;
 import com.nononsenseapps.notepad.activities.ActivityList;
+import com.nononsenseapps.notepad.database.DatabaseHandler;
 import com.robotium.solo.Solo;
 
 import java.util.List;
@@ -44,6 +47,14 @@ public class Robotium_TestCompletedTasksAreCleared extends ActivityInstrumentati
 
     @Override
     public void tearDown() throws Exception {
+        Context context = solo.getCurrentActivity().getApplicationContext();
+
+        //clear app data
+        PreferenceManager.
+                getDefaultSharedPreferences(
+                        context).edit().clear().commit();
+        DatabaseHandler.resetDatabase(context);
+
         solo.finishOpenedActivities();
         super.tearDown();
     }

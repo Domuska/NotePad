@@ -1,9 +1,12 @@
 package com.nononsenseapps.notepad.test.robotium_tests;
 
+import android.content.Context;
+import android.preference.PreferenceManager;
 import android.test.ActivityInstrumentationTestCase2;
 
 import com.nononsenseapps.notepad.R;
 import com.nononsenseapps.notepad.activities.ActivityList;
+import com.nononsenseapps.notepad.database.DatabaseHandler;
 import com.nononsenseapps.notepad.test.Helper;
 import com.robotium.solo.Solo;
 
@@ -25,6 +28,14 @@ public class Robotium_Faulty_Tests extends ActivityInstrumentationTestCase2<Acti
 
     @Override
     public void tearDown() throws Exception {
+        Context context = solo.getCurrentActivity().getApplicationContext();
+
+        //clear app data
+        PreferenceManager.
+                getDefaultSharedPreferences(
+                        context).edit().clear().commit();
+        DatabaseHandler.resetDatabase(context);
+
         solo.finishOpenedActivities();
         super.tearDown();
     }
@@ -35,7 +46,6 @@ public class Robotium_Faulty_Tests extends ActivityInstrumentationTestCase2<Acti
 
         Robotium_Helper.createNoteWithName(solo, noteName1);
         Robotium_Helper.navigateUp(solo);
-
 
         solo.clickOnView(solo.getText(noteName1 + "asdf"));
         assertFalse("should have failed before this", true);

@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.nononsenseapps.notepad.R;
+import com.robotium.solo.Condition;
 import com.robotium.solo.Solo;
 
 import java.text.DateFormat;
@@ -14,20 +15,24 @@ import java.util.Date;
 
 public class Robotium_Helper {
 
-    public static void closeDrawer(Solo solo){
+    public static void closeDrawer(final Solo solo){
         Point deviceSize = new Point();
         solo.getCurrentActivity().getWindowManager().getDefaultDisplay().getSize(deviceSize);
 
         int screenWidth = deviceSize.x;
         int screenHeight = deviceSize.y;
+        int middleHeight = screenHeight/2;
 
-        int fromX = screenWidth/2;
-        int fromY = screenHeight/2;
-        int toX = 0;
-        int toY = fromY;
+        //click a bit to left from the right edge of screen, in middle
+        solo.clickOnScreen(screenWidth - 20, middleHeight);
 
-        solo.drag(fromX, toX, fromY, toY, 2);
-        solo.waitForText("Notes");
+//        solo.waitForText("Notes");
+        solo.waitForCondition(new Condition() {
+            @Override
+            public boolean isSatisfied() {
+                return solo.getText("Notes").isShown();
+            }
+        }, 5000);
     }
 
     //sending solo.setNavigationDrawer(Solo.OPENED) does not work, do this, credit to swanson on stackoverflow

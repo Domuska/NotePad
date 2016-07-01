@@ -1,8 +1,11 @@
 package com.nononsenseapps.notepad.test.robotium_tests;
 
+import android.content.Context;
+import android.preference.PreferenceManager;
 import android.test.ActivityInstrumentationTestCase2;
 
 import com.nononsenseapps.notepad.activities.ActivityList;
+import com.nononsenseapps.notepad.database.DatabaseHandler;
 import com.robotium.solo.Solo;
 
 
@@ -26,6 +29,14 @@ public class Robotium_TestAddNewNoteShouldShowNameInNotesScreen extends Activity
 
     @Override
     public void tearDown() throws Exception {
+        Context context = solo.getCurrentActivity().getApplicationContext();
+
+        //clear app data
+        PreferenceManager.
+                getDefaultSharedPreferences(
+                        context).edit().clear().commit();
+        DatabaseHandler.resetDatabase(context);
+
         solo.finishOpenedActivities();
         super.tearDown();
     }

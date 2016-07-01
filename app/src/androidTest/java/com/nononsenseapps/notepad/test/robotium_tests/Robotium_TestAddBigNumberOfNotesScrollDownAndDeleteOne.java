@@ -1,10 +1,15 @@
 package com.nononsenseapps.notepad.test.robotium_tests;
 
+import android.content.Context;
+import android.preference.PreferenceManager;
 import android.test.ActivityInstrumentationTestCase2;
 
 import com.nononsenseapps.notepad.activities.ActivityList;
+import com.nononsenseapps.notepad.database.DatabaseHandler;
 import com.nononsenseapps.notepad.test.Helper;
 import com.robotium.solo.Solo;
+
+import org.junit.Ignore;
 
 public class Robotium_TestAddBigNumberOfNotesScrollDownAndDeleteOne extends ActivityInstrumentationTestCase2<ActivityList> {
 
@@ -35,6 +40,14 @@ public class Robotium_TestAddBigNumberOfNotesScrollDownAndDeleteOne extends Acti
 
     @Override
     public void tearDown() throws Exception {
+        Context context = solo.getCurrentActivity().getApplicationContext();
+
+        //clear app data
+        PreferenceManager.
+                getDefaultSharedPreferences(
+                        context).edit().clear().commit();
+        DatabaseHandler.resetDatabase(context);
+
         solo.finishOpenedActivities();
         super.tearDown();
     }
@@ -42,7 +55,6 @@ public class Robotium_TestAddBigNumberOfNotesScrollDownAndDeleteOne extends Acti
     public void testAddBigNumberOfNotesScrollDownAndDeleteOne(){
 
         Robotium_Helper.closeDrawer(solo);
-
 
         Robotium_Helper.createNotes(solo, noteNameList);
 
