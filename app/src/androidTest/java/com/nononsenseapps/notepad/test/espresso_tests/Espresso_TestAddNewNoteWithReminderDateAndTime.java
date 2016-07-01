@@ -8,6 +8,7 @@ import com.nononsenseapps.notepad.R;
 import com.nononsenseapps.notepad.activities.ActivityList;
 import com.nononsenseapps.notepad.test.Helper;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -23,7 +24,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class Espresso_TestAddNewNoteWithReminderDateAndTime {
+public class Espresso_TestAddNewNoteWithReminderDateAndTime extends BaseTestClass{
 
     private String noteName1;
 
@@ -32,9 +33,11 @@ public class Espresso_TestAddNewNoteWithReminderDateAndTime {
         noteName1 = "prepare food";
     }
 
-    @Rule
-    public ActivityTestRule<ActivityList> myActivityRule =
-            new ActivityTestRule<ActivityList>(ActivityList.class);
+//    @Rule
+//    public ActivityTestRule<ActivityList> myActivityRule =
+//            new ActivityTestRule<ActivityList>(ActivityList.class);
+
+
 
     @Test
     public void testAddNewNoteWithReminderDateAndTime(){

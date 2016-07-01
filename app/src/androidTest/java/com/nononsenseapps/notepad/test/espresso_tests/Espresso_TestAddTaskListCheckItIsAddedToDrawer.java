@@ -25,14 +25,14 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class Espresso_TestAddTaskListCheckItIsAddedToDrawer {
+public class Espresso_TestAddTaskListCheckItIsAddedToDrawer extends BaseTestClass{
 
 
     private String taskListName, noteName1;
 
-    @Rule
-    public ActivityTestRule<ActivityList> myActivityRule =
-            new ActivityTestRule<ActivityList>(ActivityList.class);
+//    @Rule
+//    public ActivityTestRule<ActivityList> myActivityRule =
+//            new ActivityTestRule<ActivityList>(ActivityList.class);
 
     @Before
     public void initStrings(){

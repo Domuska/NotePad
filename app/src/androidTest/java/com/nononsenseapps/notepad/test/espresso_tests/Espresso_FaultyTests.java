@@ -1,5 +1,6 @@
 package com.nononsenseapps.notepad.test.espresso_tests;
 
+import android.preference.PreferenceManager;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
@@ -8,7 +9,9 @@ import com.nononsenseapps.notepad.R;
 import com.nononsenseapps.notepad.activities.ActivityList;
 import com.nononsenseapps.notepad.test.Helper;
 
+import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,24 +23,27 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static junit.framework.Assert.assertFalse;
+import static junit.framework.Assert.fail;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class Espresso_FaultyTests {
+public class Espresso_FaultyTests extends BaseTestClass{
 
     private String noteName1;
     private String createNewText;
 
 
-    @Rule
-    public ActivityTestRule<ActivityList> myActivityRule =
-            new ActivityTestRule<ActivityList>(ActivityList.class);
+//    @Rule
+//    public ActivityTestRule<ActivityList> myActivityRule =
+//            new ActivityTestRule<ActivityList>(ActivityList.class);
 
     @Before
     public void initStrings(){
         noteName1 = "prepare food";
         createNewText = myActivityRule.getActivity().getResources().getString(R.string.menu_createnew);
     }
+
+
 
     @Test
     public void testAddNewNoteSearchForFaultyNoteName(){
@@ -69,6 +75,7 @@ public class Espresso_FaultyTests {
     @Test
     public void testSearchForElementWithFaultyID(){
 //        onView(withId(R.id.faulty_id)).perform(click());
+        fail();
     }
 
     @Test

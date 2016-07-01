@@ -27,13 +27,13 @@ import static org.hamcrest.core.IsNot.not;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class Espresso_TestCreateTaskListAndDeleteIt {
+public class Espresso_TestCreateTaskListAndDeleteIt extends BaseTestClass{
 
     private String taskListName;
 
-    @Rule
-    public ActivityTestRule<ActivityList> myActivityRule =
-            new ActivityTestRule<ActivityList>(ActivityList.class);
+//    @Rule
+//    public ActivityTestRule<ActivityList> myActivityRule =
+//            new ActivityTestRule<ActivityList>(ActivityList.class);
 
     @Before
     public void initStrings(){

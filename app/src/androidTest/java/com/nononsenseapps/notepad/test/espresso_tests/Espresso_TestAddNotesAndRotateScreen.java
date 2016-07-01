@@ -7,6 +7,7 @@ import android.test.suitebuilder.annotation.LargeTest;
 import com.nononsenseapps.notepad.activities.ActivityList;
 import com.nononsenseapps.notepad.test.Helper;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -22,7 +23,7 @@ import static com.nononsenseapps.notepad.test.espresso_tests.OrientationChangeAc
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class Espresso_TestAddNotesAndRotateScreen {
+public class Espresso_TestAddNotesAndRotateScreen extends BaseTestClass{
 
     String noteName1, noteName2, noteName3, noteName4;
 
@@ -34,9 +35,10 @@ public class Espresso_TestAddNotesAndRotateScreen {
         noteName4 = "sleep";
     }
 
-    @Rule
-    public ActivityTestRule<ActivityList> myActivityRule =
-            new ActivityTestRule<ActivityList>(ActivityList.class);
+//    @Rule
+//    public ActivityTestRule<ActivityList> myActivityRule =
+//            new ActivityTestRule<ActivityList>(ActivityList.class);
+
 
     @Test
     public void testAddNotesAndRotateScreen(){

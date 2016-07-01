@@ -32,13 +32,13 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class Espresso_TestCompletedTasksAreCleared {
+public class Espresso_TestCompletedTasksAreCleared extends BaseTestClass{
 
     String noteName1, noteName2, noteName3, noteName4;
 
-    @Rule
-    public ActivityTestRule<ActivityList> myActivityRule =
-            new ActivityTestRule<ActivityList>(ActivityList.class);
+//    @Rule
+//    public ActivityTestRule<ActivityList> myActivityRule =
+//            new ActivityTestRule<ActivityList>(ActivityList.class);
 
     @Before
     public void initStrings(){

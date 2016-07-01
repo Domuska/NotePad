@@ -24,13 +24,13 @@ import static org.hamcrest.Matchers.allOf;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class Espresso_TestAddNoteToTaskList {
+public class Espresso_TestAddNoteToTaskList extends BaseTestClass{
 
     private String taskListName, noteName1;
 
-    @Rule
-    public ActivityTestRule<ActivityList> myActivityRule =
-            new ActivityTestRule<ActivityList>(ActivityList.class);
+//    @Rule
+//    public ActivityTestRule<ActivityList> myActivityRule =
+//            new ActivityTestRule<ActivityList>(ActivityList.class);
 
     @Before
     public void initStrings(){

@@ -25,13 +25,13 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class Espresso_TestAddNewNoteWithDueDateCheckDateIsVisible {
+public class Espresso_TestAddNewNoteWithDueDateCheckDateIsVisible extends BaseTestClass{
 
     private String noteName1;
 
-    @Rule
-    public ActivityTestRule<ActivityList> myActivityRule =
-            new ActivityTestRule<ActivityList>(ActivityList.class);
+//    @Rule
+//    public ActivityTestRule<ActivityList> myActivityRule =
+//            new ActivityTestRule<ActivityList>(ActivityList.class);
 
     @Before
     public void initStrings() {

@@ -10,6 +10,7 @@ import com.nononsenseapps.notepad.R;
 import com.nononsenseapps.notepad.activities.ActivityList;
 import com.nononsenseapps.notepad.test.Helper;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -25,7 +26,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class Espresso_TestAddTaskListsScrollNavigationDrawer {
+public class Espresso_TestAddTaskListsScrollNavigationDrawer extends BaseTestClass{
 
     String[] taskListNames = {"Lorem", "ipsum ", "dolor ", "sit ", "amet", "consectetur ",
             "adipiscing ", "elit", "sed ", "do ", "eiusmod ", "tempor ", "incididunt ",
@@ -33,9 +34,9 @@ public class Espresso_TestAddTaskListsScrollNavigationDrawer {
 
     String SETTINGS_TEXT, SETTINGS_APPEARANCE_TEXT;
 
-    @Rule
-    public ActivityTestRule<ActivityList> myActivityRule =
-            new ActivityTestRule<ActivityList>(ActivityList.class);
+//    @Rule
+//    public ActivityTestRule<ActivityList> myActivityRule =
+//            new ActivityTestRule<ActivityList>(ActivityList.class);
 
     @Before
     public void initStrings(){

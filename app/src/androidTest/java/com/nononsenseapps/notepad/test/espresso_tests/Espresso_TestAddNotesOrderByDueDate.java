@@ -36,7 +36,7 @@ import static org.hamcrest.Matchers.startsWith;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class Espresso_TestAddNotesOrderByDueDate {
+public class Espresso_TestAddNotesOrderByDueDate extends BaseTestClass{
 
     private String noteName1;
     private String noteName2;
@@ -44,9 +44,9 @@ public class Espresso_TestAddNotesOrderByDueDate {
     private String noteName4;
     private String day04, day05, day15, day23;
 
-    @Rule
-    public ActivityTestRule<ActivityList> myActivityRule =
-            new ActivityTestRule<ActivityList>(ActivityList.class);
+//    @Rule
+//    public ActivityTestRule<ActivityList> myActivityRule =
+//            new ActivityTestRule<ActivityList>(ActivityList.class);
 
     @Before
     public void initStrings(){

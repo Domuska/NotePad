@@ -48,6 +48,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		return singleton;
 	}
 
+
+	public static void resetDatabase(Context context){
+		context.deleteDatabase(DatabaseHandler.DATABASE_NAME);
+		singleton = new DatabaseHandler(context);
+		DatabaseHandler.getInstance(context).getWritableDatabase();
+	}
+
 	private static final int DATABASE_VERSION = 15;
 	public static final String DATABASE_NAME = "nononsense_notes.db";
 
@@ -352,5 +359,26 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			db.execSQL("DROP VIEW IF EXISTS " + Notification.WITH_TASK_VIEW_NAME);
 		}
 	}
+
+	public void removeData(SQLiteDatabase db){
+		db.beginTransaction();
+		db.execSQL("DELETE FROM " + Task.TABLE_NAME + ";");
+		db.execSQL("DELETE FROM " + Task.DELETE_TABLE_NAME + ";");
+		db.execSQL("DELETE FROM " + Task.HISTORY_TABLE_NAME + ";");
+		db.execSQL("DELETE FROM " + Notification.TABLE_NAME + ";");
+		db.execSQL("Delete from " + RemoteTaskList.TABLE_NAME + ";");
+		db.execSQL("Delete from " + RemoteTask.TABLE_NAME + ";");
+		db.endTransaction();
+	}
+
+	/*
+	db.execSQL(TaskList.CREATE_TABLE);
+		db.execSQL(Task.CREATE_TABLE);
+		db.execSQL(Task.CREATE_DELETE_TABLE);
+		db.execSQL(Task.CREATE_HISTORY_TABLE);
+		db.execSQL(Notification.CREATE_TABLE);
+		db.execSQL(RemoteTaskList.CREATE_TABLE);
+		db.execSQL(RemoteTask.CREATE_TABLE);
+	 */
 
 }

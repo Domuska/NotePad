@@ -9,6 +9,7 @@ import com.nononsenseapps.notepad.activities.ActivityList;
 import com.nononsenseapps.notepad.R;
 import com.nononsenseapps.notepad.test.Helper;
 
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -40,6 +41,7 @@ public class Espresso_TestAddBigNumberOfNotesScrollDownAndDeleteOne {
             new ActivityTestRule<ActivityList>(ActivityList.class);
 
     @Test
+    @Ignore
     public void testAddBigNumberOfNotesScrollDownAndDeleteOne(){
 
         Helper.closeDrawer();
