@@ -7,6 +7,7 @@ import android.support.test.uiautomator.UiScrollable;
 import android.support.test.uiautomator.UiSelector;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertFalse;
@@ -34,6 +35,7 @@ public class uiautomator_TestAddBigNumberOfNotesScrollDownAndDeleteOne extends B
     }
 
     @Test
+    @Ignore
     public void testAddBigNumberOfNotesScrollDownAndDeleteOne() throws Exception{
 
         uiautomator_helper.closeDrawer(device);

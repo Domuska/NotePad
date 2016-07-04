@@ -29,8 +29,10 @@ public class BaseTestClass {
         // Test running failed: Instrumentation run failed due to 'Process crashed.'
         // comes up often
         InstrumentationRegistry.getInstrumentation().getUiAutomation()
-                .executeShellCommand("pm clear " + NOTEPAD_PACKAGE)
+                .executeShellCommand("pm clear com.nononsenseapps.notepad")
                 .close();
+//                .executeShellCommand("pm clear " + NOTEPAD_PACKAGE);
+//                .close();
 
     }
 
