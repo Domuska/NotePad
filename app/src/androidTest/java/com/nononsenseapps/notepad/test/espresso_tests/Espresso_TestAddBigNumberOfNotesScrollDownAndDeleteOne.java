@@ -24,7 +24,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class Espresso_TestAddBigNumberOfNotesScrollDownAndDeleteOne {
+public class Espresso_TestAddBigNumberOfNotesScrollDownAndDeleteOne extends BaseTestClass{
 
     private String[] noteNameList =
             {"prepare food", "take dogs out", "water plants", "sleep",
@@ -36,26 +36,28 @@ public class Espresso_TestAddBigNumberOfNotesScrollDownAndDeleteOne {
             "  ", "     "
             };
 
-    @Rule
-    public ActivityTestRule<ActivityList> myActivityRule =
-            new ActivityTestRule<ActivityList>(ActivityList.class);
 
     @Test
     public void testAddBigNumberOfNotesScrollDownAndDeleteOne(){
 
         Helper.closeDrawer();
-
+        //create the notes
         Helper.createNotes(noteNameList);
 
         onView(withId(android.R.id.list)).perform(RecyclerViewActions.actionOnItem(
                 hasDescendant(withText(noteNameList[0])), click()
         ));
 
+        //delete the last note
+        onView(withId(R.id.menu_delete)).perform(click());
+        onView(withId(android.R.id.button1)).perform(click());
 
-
-        //assert that the new fragment was launched
-        onView(withId(R.id.taskText)).check(matches(isDisplayed()));
+        //assert the note is not visible
+        //todo finish this. How to do it?
+        // http://alexander-thiele.blogspot.fi/2016/01/espresso-ui-tests-and-recyclerview.html
+//        onView(withId(android.R.id.list)).perform(RecyclerViewActions.scrollTo(
+//                withText(noteNameList[0])
+//        ));
 
     }
-
 }
