@@ -9,6 +9,7 @@ import android.support.test.uiautomator.By;
 import android.support.test.uiautomator.Direction;
 import android.support.test.uiautomator.UiDevice;
 import android.support.test.uiautomator.UiObject;
+import android.support.test.uiautomator.UiScrollable;
 import android.support.test.uiautomator.UiSelector;
 import android.support.test.uiautomator.Until;
 
@@ -75,7 +76,11 @@ public class uiautomator_helper {
     }
 
     public static void createTaskList(UiDevice device, String name) throws Exception{
-//        device.findObject(By.text())
+
+        UiScrollable recyclerView = new UiScrollable(
+                new UiSelector().resourceId("com.nononsenseapps.notepad:id/navigation_drawer"));
+        recyclerView.scrollTextIntoView("Create new");
+
         device.findObject(new UiSelector()
                 .text("Create new"))
                 .click();

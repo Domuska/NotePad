@@ -21,7 +21,6 @@ import static junit.framework.Assert.assertNotNull;
 public class uiautomator_TestAddTaskListCheckItIsAddedToDrawer extends BaseTestClass{
 
     private UiDevice device;
-
     private String taskListName = "a random task list";
 
     @Before
