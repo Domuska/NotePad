@@ -43,10 +43,10 @@ public class uiautomator_TestAddBigNumberOfNotesScrollDownAndDeleteOne extends B
         //scroll to last one
         UiScrollable recyclerView = new UiScrollable(
                 new UiSelector().resourceId("android:id/list"));
-        recyclerView.scrollTextIntoView(noteName1);
+        recyclerView.scrollTextIntoView(noteNameList[0]);
 
         //delete the note
-        device.findObject(By.text(noteName1)).click();
+        device.findObject(By.text(noteNameList[0])).click();
         device.findObject(By.res("com.nononsenseapps.notepad:id/menu_delete")).click();
         device.findObject(By.res("android:id/button1")).click();
 

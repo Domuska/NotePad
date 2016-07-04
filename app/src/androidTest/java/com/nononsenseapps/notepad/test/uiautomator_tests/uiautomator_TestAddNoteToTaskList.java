@@ -50,7 +50,7 @@ public class uiautomator_TestAddNoteToTaskList extends BaseTestClass{
         uiautomator_helper.createNewNoteWithName(device, noteName1);
         uiautomator_helper.navigateUp(device);
 
-        //assert the drawers shows the task list has a task
+        //assert the drawer shows the task list has a task
         uiautomator_helper.openDrawer(device);
         List<UiObject2> objects = device.findObjects(By.res("android:id/text2"));
 
