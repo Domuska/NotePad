@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.test.InstrumentationRegistry;
-import android.support.test.espresso.action.Swipe;
 import android.support.test.uiautomator.By;
 import android.support.test.uiautomator.Direction;
 import android.support.test.uiautomator.UiDevice;
@@ -16,18 +15,31 @@ import android.support.test.uiautomator.Until;
 import java.text.DateFormat;
 import java.util.Date;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.IsNull.notNullValue;
+
 public class uiautomator_helper {
 
     private static final String NOTEPAD_PACKAGE = "com.nononsenseapps.notepad";
     private static final int LAUNCH_TIMEOUT = 5000;
 
     public static void startApplication(UiDevice device){
-        Context context = InstrumentationRegistry.getInstrumentation().getContext();
+
+        device.pressBack();
+
+        // Wait for launcher
+        final String launcherPackage = device.getLauncherPackageName();
+        assertThat(launcherPackage, notNullValue());
+        device.wait(Until.hasObject(By.pkg(launcherPackage).depth(0)),
+                LAUNCH_TIMEOUT);
+
+        //launch app
+        Context context = InstrumentationRegistry.getContext();
         Intent intent = context.getPackageManager().
                 getLaunchIntentForPackage(NOTEPAD_PACKAGE);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-
         context.startActivity(intent);
+
         device.wait(Until.hasObject(By.pkg(NOTEPAD_PACKAGE).depth(0)), LAUNCH_TIMEOUT);
     }
 

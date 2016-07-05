@@ -12,6 +12,7 @@ import android.support.test.uiautomator.UiObject;
 import android.support.test.uiautomator.UiObject2;
 import android.support.test.uiautomator.Until;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,6 +35,27 @@ public class uiautomator_TestAddNewNoteShouldShowNameInNotesScreen extends BaseT
     public void setUp(){
         device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
         uiautomator_helper.startApplication(device);
+    }
+
+    @After
+    public void tearDown2(){
+        try {
+            device.pressHome();
+
+            InstrumentationRegistry.getInstrumentation().getUiAutomation()
+                    .executeShellCommand("pm clear com.nononsenseapps.notepad")
+                    .close();
+
+
+
+
+//            InstrumentationRegistry.getInstrumentation().getUiAutomation()
+//                .executeShellCommand("am start -W -n com.nononsenseapps.notepad/.activities.ActivityList")
+//                .close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Test

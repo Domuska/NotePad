@@ -29,8 +29,23 @@ public class BaseTestClass {
         // Test running failed: Instrumentation run failed due to 'Process crashed.'
         // comes up often
         InstrumentationRegistry.getInstrumentation().getUiAutomation()
-                .executeShellCommand("pm clear com.nononsenseapps.notepad")
+//                .executeShellCommand("pm clear com.nononsenseapps.notepad")
+//                .executeShellCommand("am force-stop com.nononsenseapps.notepad")
+                .executeShellCommand("screencap /storage/emulated/0/Download/screen.png")
                 .close();
+
+//        InstrumentationRegistry.getInstrumentation().getUiAutomation()
+//                .executeShellCommand("pm clear com.nononsenseapps.notepad")
+//        .close();
+
+//        InstrumentationRegistry.getInstrumentation().getUiAutomation()
+//                .executeShellCommand("am start -W -n com.nononsenseapps.notepad/.activities.ActivityList")
+//                .close();
+
+
+//        InstrumentationRegistry.getInstrumentation().finish(-1, null);
+
+
 //                .executeShellCommand("pm clear " + NOTEPAD_PACKAGE);
 //                .close();
 
