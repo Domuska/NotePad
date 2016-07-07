@@ -29,12 +29,6 @@ public class BaseTestClass {
     public ActivityTestRule<ActivityList> myActivityRule =
             new ActivityTestRule<ActivityList>(ActivityList.class);
 
-    @Before
-    public void setUp(){
-        Context context = myActivityRule.getActivity().getApplicationContext();
-
-//        DatabaseHandler.getInstance(context).getWritableDatabase();
-    }
 
     @After
     public void tearDown(){
@@ -47,47 +41,13 @@ public class BaseTestClass {
         DatabaseHandler.resetDatabase(context);
 
         //start the original activity
-        Intent i = context.getPackageManager()
-                .getLaunchIntentForPackage(context.getPackageName());
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        context.startActivity(i);
+//        Intent i = context.getPackageManager()
+//                .getLaunchIntentForPackage(context.getPackageName());
+//        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        context.startActivity(i);
 
-
-        //old stuff that is to be removed in time
-
-//        context.deleteDatabase(DatabaseHandler.DATABASE_NAME);
-//        DatabaseHandler.refreshInstance(context);
-//        DatabaseHandler.getInstance(context).getWritableDatabase();
-//        myActivityRule.getActivity().finish();
-//        ActivityFinisher.finishOpenActivities();
     }
 
-//    private static final class ActivityFinisher implements Runnable {
-//
-//        public static void finishOpenActivities() {
-//            new Handler(Looper.getMainLooper()).post(new ActivityFinisher());
-//        }
-//
-//        private final ActivityLifecycleMonitor activityLifecycleMonitor;
-//
-//        private ActivityFinisher() {
-//            this.activityLifecycleMonitor = ActivityLifecycleMonitorRegistry.getInstance();
-//        }
-//
-//        @Override
-//        public void run() {
-//            final List<Activity> activities = new ArrayList<Activity>();
-//
-//            for (final Stage stage : EnumSet.range(Stage.CREATED, Stage.STOPPED)) {
-//                activities.addAll(activityLifecycleMonitor.getActivitiesInStage(stage));
-//            }
-//
-//            for (final Activity activity : activities) {
-//                if (!activity.isFinishing()) {
-//                    activity.finish();
-//                }
-//            }
-//        }
-//    }
+
 
 }
