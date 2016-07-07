@@ -7,7 +7,9 @@ import android.support.test.uiautomator.UiObject;
 import android.support.test.uiautomator.UiSelector;
 import android.support.test.uiautomator.Until;
 
+import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertNotNull;
@@ -23,6 +25,8 @@ public class uiautomator_TestAddNewNoteWithDueDateCheckDateIsVisible extends Bas
         device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
         uiautomator_helper.startApplication(device);
     }
+
+
 
     @Test
     public void testAddNewNoteWithDueDateCheckDateIsVisible() throws Exception{

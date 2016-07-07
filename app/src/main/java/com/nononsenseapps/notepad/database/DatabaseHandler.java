@@ -71,6 +71,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		this.testPrefix = testPrefix;
 	}
 
+	/**
+	 * Used by Espresso tests to remove the whole database
+	 */
+	public static void resetDatabase(Context context){
+		context.deleteDatabase(DatabaseHandler.DATABASE_NAME);
+		singleton = new DatabaseHandler(context);
+		DatabaseHandler.getInstance(context).getWritableDatabase();
+	}
+
 	@Override
 	public void onOpen(SQLiteDatabase db) {
 		super.onOpen(db);

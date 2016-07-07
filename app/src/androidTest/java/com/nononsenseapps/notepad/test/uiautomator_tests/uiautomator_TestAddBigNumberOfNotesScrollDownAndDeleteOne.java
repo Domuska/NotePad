@@ -35,7 +35,6 @@ public class uiautomator_TestAddBigNumberOfNotesScrollDownAndDeleteOne extends B
     }
 
     @Test
-    @Ignore
     public void testAddBigNumberOfNotesScrollDownAndDeleteOne() throws Exception{
 
         uiautomator_helper.closeDrawer(device);

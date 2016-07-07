@@ -22,7 +22,6 @@ public class uiautomator_FaultyTests extends BaseTestClass{
     }
 
     @Test
-    @Ignore
     public void testAddNewNoteSearchForFaultyNoteName() throws Exception{
         uiautomator_helper.closeDrawer(device);
 
@@ -34,7 +33,6 @@ public class uiautomator_FaultyTests extends BaseTestClass{
     }
 
     @Test
-    @Ignore
     public void testSearchForElementWithTextShouldFailOnView() throws Exception{
 
         uiautomator_helper.closeDrawer(device);
@@ -44,7 +42,6 @@ public class uiautomator_FaultyTests extends BaseTestClass{
 
     //search for element with valid ID but that should not be visible
     @Test
-    @Ignore
     public void testSearchForElementWithIDShouldFailOnView() throws Exception{
         uiautomator_helper.closeDrawer(device);
         device.findObject(By.res("com.nononsenseapps.notepad:id/fab")).click();
@@ -53,7 +50,6 @@ public class uiautomator_FaultyTests extends BaseTestClass{
     }
 
     @Test
-    @Ignore
     public void testSearchForElementWithFaultyID() throws Exception{
 
         uiautomator_helper.closeDrawer(device);
@@ -61,7 +57,6 @@ public class uiautomator_FaultyTests extends BaseTestClass{
     }
 
     @Test
-    @Ignore
     public void testSearchForElementWithAmbiguousIdentifier() throws Exception{
 
         uiautomator_helper.closeDrawer(device);

@@ -8,6 +8,7 @@ import android.support.test.uiautomator.UiObject2;
 import android.support.test.uiautomator.UiSelector;
 import android.support.test.uiautomator.Until;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,6 +24,8 @@ public class uiautomator_TestAddNewNoteWithReminderDateAndTime extends BaseTestC
         device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
         uiautomator_helper.startApplication(device);
     }
+
+
 
     @Test
     public void testAddNewNoteWithReminderDateAndTime() throws Exception{

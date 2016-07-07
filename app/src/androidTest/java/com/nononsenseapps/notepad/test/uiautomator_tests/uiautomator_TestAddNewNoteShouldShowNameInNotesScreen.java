@@ -10,7 +10,11 @@ import android.support.test.uiautomator.BySelector;
 import android.support.test.uiautomator.UiDevice;
 import android.support.test.uiautomator.UiObject;
 import android.support.test.uiautomator.UiObject2;
+import android.support.test.uiautomator.UiScrollable;
+import android.support.test.uiautomator.UiSelector;
 import android.support.test.uiautomator.Until;
+
+import com.nononsenseapps.notepad.database.DatabaseHandler;
 
 import org.junit.After;
 import org.junit.Before;
@@ -37,26 +41,7 @@ public class uiautomator_TestAddNewNoteShouldShowNameInNotesScreen extends BaseT
         uiautomator_helper.startApplication(device);
     }
 
-    @After
-    public void tearDown2(){
-        try {
-            device.pressHome();
-
-            InstrumentationRegistry.getInstrumentation().getUiAutomation()
-                    .executeShellCommand("pm clear com.nononsenseapps.notepad")
-                    .close();
-
-
-
-
-//            InstrumentationRegistry.getInstrumentation().getUiAutomation()
-//                .executeShellCommand("am start -W -n com.nononsenseapps.notepad/.activities.ActivityList")
-//                .close();
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-    }
+    
 
     @Test
     public void testAddNewNoteShouldShowNameInNotesScreen() throws Exception{
