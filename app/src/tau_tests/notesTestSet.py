@@ -33,15 +33,10 @@ class NotesTests(UITestCase):
                 "write another book", "scrap the book project", "start a blog",
                 "  ", "     "]
         
-        
-        
     def tearDown(self):
-        #kill('com.nononsenseapps.notepad')
         packages.forceStop('com.nononsenseapps.notepad')
         packages.clearData('com.nononsenseapps.notepad')
         
-        
-
     @testCaseInfo('<Add a new note>', deviceCount=1)
     def testAddNewNoteShouldShowNameInNotesScreen(self):
         """ Insert brief description of the test case
@@ -57,17 +52,17 @@ class NotesTests(UITestCase):
         self.createNoteWithName(noteName1)
         
         self.navigateUp()
-        
         verify.text('prepare food', scroll=True)
         
 
     @testCaseInfo('<Add new notelist>', deviceCount=1)
     def testAddTaskListCheckItIsAddedToDrawer(self):
         """
-            1. do stuff
+            1. create a new task list
+            2.verify that the task list exists 
         """
-        self.createTaskList(taskListName)
         
+        self.createTaskList(taskListName)
         self.openDrawer()
         
         verify.text(taskListName, scroll=True)
@@ -75,8 +70,11 @@ class NotesTests(UITestCase):
     @testCaseInfo('<Add note to tasklist>', deviceCount=1)
     def testAddNoteToTaskList(self):
         """
-            1. do stuff
+            1. creat a task list
+            2. open the task list and add note to it
+            3. verify that nav drawer shows 1 note added
         """
+        
         self.createTaskList(taskListName)
         
         tap.description('Open navigation drawer')
@@ -87,7 +85,7 @@ class NotesTests(UITestCase):
 
         verify.text(noteName1, scroll=True)
         self.openDrawer()
-        verify.text('1', scroll=True)
+        verify.text('1', scroll=True, area="com.nononsenseapps.notepad:id/navigation_drawer")
         
     @testCaseInfo('<Add note and add reminder date>', deviceCount=1)
     def testAddNewNoteWithReminderDateAndTime(self):
@@ -116,10 +114,11 @@ class NotesTests(UITestCase):
         tap.text(noteName1)
         
         #verify month is shown
-        found = find.resourceId('com.nononsenseapps.notepad:id/notificationDate', scroll=True)
+        verify.resourceId('com.nononsenseapps.notepad:id/notificationDate', scroll=True)
+        #found = find.resourceId('com.nononsenseapps.notepad:id/notificationDate', scroll=True)
         
-        if not found:
-            fail("month is not visible even though reminder was added")
+        #if not found:
+        #    fail("month is not visible even though reminder was added")
         
     @testCaseInfo('<Add note with due date>', deviceCount=1)
     def testAddNewNoteWithDueDateCheckDateIsVisible(self):
@@ -135,11 +134,11 @@ class NotesTests(UITestCase):
         
         self.navigateUp()
         
+        verify.resourceId('com.nononsenseapps.notepad:id/date', scroll=True)
+        #found = find.resourceId('com.nononsenseapps.notepad:id/date', scroll=True)
         
-        found = find.resourceId('com.nononsenseapps.notepad:id/date', scroll=True)
-        
-        if not found:
-            fail("due date is not visible!")
+        #if not found:
+        #    fail("due date is not visible!")
 
         
     @testCaseInfo('<Add note and delete it>', deviceCount=1)
@@ -158,10 +157,11 @@ class NotesTests(UITestCase):
         tap.resourceId('com.nononsenseapps.notepad:id/menu_delete')
         tap.resourceId('android:id/button1')
         
-        found = find.text(noteName1, index=1, scroll=True)
+        verify.no.text(noteName1, index=1, scroll=True)
+        #found = find.text(noteName1, index=1, scroll=True)
         
-        if found:
-            fail("note found, was not deleted properly!")
+        #if found:
+        #    fail("note found, was not deleted properly!")
         
         
     @testCaseInfo('<Add notes and order by due date>', deviceCount=1)
@@ -265,13 +265,14 @@ class NotesTests(UITestCase):
         tap.text('OK')
         
         #assert it is not visible
-        exists.no.text(taskListName)
+        verify.no.text(taskListName)
+        #exists.no.text(taskListName)
                 
     @testCaseInfo('<Clear done tasks>', deviceCount=1)
     def testCompletedTasksAreCleared(self):
         """
             1. add notes
-            2. check checkboxes
+            2. check 2 checkboxes
             3. clear done tasks
             4. assert that correct notes are removed from list
         """
@@ -281,22 +282,22 @@ class NotesTests(UITestCase):
         self.closeDrawer()
         self.createNotes(noteNames)
         
-        # get checkboxes, note that this way is not very generalizable 
-        # if the checkbox for example was not visible, this method would
-        # not work but we would have to manually scroll the checkbox
-        # into view somehow
-        checkBoxes = get.items.instanceOf('android.widget.CheckBox')
+        tap.instanceOf('android.widget.CheckBox', index = 1)
+        tap.instanceOf('android.widget.CheckBox', index = 3)
+        #checkBoxes = get.items.instanceOf('android.widget.CheckBox')
         
-        tap.item(checkBoxes[1])
-        tap.item(checkBoxes[3])
+        #tap.item(checkBoxes[1])
+        #tap.item(checkBoxes[3])
         
         #remove notes
         tap.description('More options')
         tap.text('Clear completed')
         tap.text('OK')
         
-        exists.no.text(noteNames[0])
-        exists.no.text(noteNames[2])
+        verify.no.text(noteNames[0])
+        verify.no.text(noteNames[2])
+        #exists.no.text(noteNames[0])
+        #exists.no.text(noteNames[2])
         
     @testCaseInfo('<Rotate screen in task list>', deviceCount=1)
     def testAddTaskListAndRotateScreen(self):
@@ -318,15 +319,14 @@ class NotesTests(UITestCase):
         orientation.left()
         orientation.portrait()
         
+        verify.text(taskListName)
+        #taskListFound = exists.text(taskListName)
+        
+        #if not taskListFound:
+        #    fail("task list was not found")
         
         
-        taskListFound = exists.text(taskListName)
-        
-        if not taskListFound:
-            fail("task list was not found")
-        
-        
-    @testCaseInfo('<Rotate screen in task list>', deviceCount=1)
+    @testCaseInfo('<Rotate screen in task notes>', deviceCount=1)
     def testAddNotesAndRotateScreen(self):
         """
             1. add notes to the list
@@ -343,15 +343,18 @@ class NotesTests(UITestCase):
         orientation.left()
         orientation.portrait()
         
+        verify.text(noteNames[0])
+        verify.text(noteNames[1])
+        verify.text(noteNames[2])
+        verify.text(noteNames[3])
+        #firstNoteFound = exists.text(noteNames[0])
+        #secondNoteFound = exists.text(noteNames[1])
+        #thirdNoteFound = exists.text(noteNames[2])
+        #fourthNoteFound = exists.text(noteNames[3])
         
-        firstNoteFound = exists.text(noteNames[0])
-        secondNoteFound = exists.text(noteNames[1])
-        thirdNoteFound = exists.text(noteNames[2])
-        fourthNoteFound = exists.text(noteNames[3])
-        
-        if not firstNoteFound or not secondNoteFound \
-        or not thirdNoteFound or not fourthNoteFound:
-            fail("all notes were not visible in the list")
+        #if not firstNoteFound or not secondNoteFound \
+        #or not thirdNoteFound or not fourthNoteFound:
+        #    fail("all notes were not visible in the list")
         
     @testCaseInfo('<Add notes and scroll down to open one>', deviceCount=1)
     def testAddBigNumberOfNotesScrollDownAndDeleteOne(self):
@@ -384,10 +387,11 @@ class NotesTests(UITestCase):
         #open settings, define that it is searched in the nav drawer
         tap.text("Settings", area="com.nononsenseapps.notepad:id/navigation_drawer")
         
-        settingsOpened = exists.text("Settings")
+        verify.text("Settings")
+        #settingsOpened = exists.text("Settings")
         
-        if not settingsOpened:
-            fail("settings was not launched")
+        #if not settingsOpened:
+        #    fail("settings was not launched")
         
     
     
