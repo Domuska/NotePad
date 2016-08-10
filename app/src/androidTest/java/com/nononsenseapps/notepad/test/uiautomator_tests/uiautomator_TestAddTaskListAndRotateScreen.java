@@ -14,17 +14,11 @@ import static junit.framework.Assert.fail;
 
 public class uiautomator_TestAddTaskListAndRotateScreen extends BaseTestClass{
 
-    private UiDevice device;
     private String taskListName = "a random task list";
-
-    @Before
-    public void setUp(){
-        device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
-        uiautomator_helper.startApplication(device);
-    }
 
     @After
     public void resetOrientation() throws Exception{
+        device.setOrientationNatural();
     }
 
     @Test

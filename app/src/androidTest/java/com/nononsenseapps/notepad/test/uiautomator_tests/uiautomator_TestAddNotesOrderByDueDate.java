@@ -20,7 +20,6 @@ import static junit.framework.Assert.assertEquals;
 
 public class uiautomator_TestAddNotesOrderByDueDate extends BaseTestClass{
 
-    UiDevice device;
     private String noteName1 = "prepare food";
     private String noteName2 = "take dogs out";
     private String noteName3 = "water plants";
@@ -29,8 +28,6 @@ public class uiautomator_TestAddNotesOrderByDueDate extends BaseTestClass{
 
     @Before
     public void setUp(){
-        device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
-        uiautomator_helper.startApplication(device);
 
         String currentMonthAndYear = uiautomator_helper.getMonthAndYear();
 
@@ -43,9 +40,7 @@ public class uiautomator_TestAddNotesOrderByDueDate extends BaseTestClass{
     @Test
     public void testAddNotesOrderByDueDate() throws Exception{
 
-//        String[] noteNames = {noteName1, noteName2, noteName3, noteName4};
         String[] expectedNoteOrder = {noteName2, noteName1, noteName4, noteName3};
-
         uiautomator_helper.closeDrawer(device);
 
         // day 05
@@ -60,7 +55,6 @@ public class uiautomator_TestAddNotesOrderByDueDate extends BaseTestClass{
         device.wait(Until.findObject(
                 By.res("com.nononsenseapps.notepad:id/fab")),
                 LAUNCH_TIMEOUT);
-
 
         //day 04
         uiautomator_helper.createNewNoteWithName(device, noteName2);

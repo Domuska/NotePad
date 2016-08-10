@@ -12,18 +12,11 @@ import static junit.framework.Assert.assertTrue;
 
 public class uiautomator_TestAddNotesAndRotateScreen extends BaseTestClass{
 
-    UiDevice device;
     private String noteName1 = "prepare food";
     private String noteName2 = "take dogs out";
     private String noteName3 = "water plants";
     private String noteName4 = "sleep";
     private String[] noteNames = {noteName1, noteName2, noteName3, noteName4};
-
-    @Before
-    public void setUp(){
-        device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
-        uiautomator_helper.startApplication(device);
-    }
 
     @Test
     public void testAddNotesAndRotateScreen() throws Exception{
@@ -48,6 +41,5 @@ public class uiautomator_TestAddNotesAndRotateScreen extends BaseTestClass{
         assertTrue("Note " + noteName2 + " not found", note2.exists());
         assertTrue("Note " + noteName3 + " not found", note3.exists());
         assertTrue("Note " + noteName4 + " not found", note4.exists());
-
     }
 }

@@ -17,16 +17,7 @@ import static junit.framework.Assert.assertNotNull;
 
 public class uiautomator_TestAddNewNoteWithDueDateCheckDateIsVisible extends BaseTestClass{
 
-    UiDevice device;
     private String noteName1 = "prepare food";
-
-    @Before
-    public void setUp(){
-        device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
-        uiautomator_helper.startApplication(device);
-    }
-
-
 
     @Test
     public void testAddNewNoteWithDueDateCheckDateIsVisible() throws Exception{

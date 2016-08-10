@@ -15,7 +15,6 @@ import static junit.framework.Assert.fail;
 
 public class uiautomator_TestAddBigNumberOfNotesScrollDownAndDeleteOne extends BaseTestClass{
 
-    UiDevice device;
     private String noteName1 = "prepare food";
     private String noteName2 = "take dogs out";
     private String noteName3 = "water plants";
@@ -27,12 +26,6 @@ public class uiautomator_TestAddBigNumberOfNotesScrollDownAndDeleteOne extends B
             "ponder life", "build a house", "repair the house", "call contractor",
             "write another book", "scrap the book project", "start a blog",
             "  ", "     "};
-
-    @Before
-    public void setUp(){
-        device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
-        uiautomator_helper.startApplication(device);
-    }
 
     @Test
     public void testAddBigNumberOfNotesScrollDownAndDeleteOne() throws Exception{

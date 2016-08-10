@@ -8,28 +8,29 @@ import android.os.ParcelFileDescriptor;
 import android.preference.PreferenceManager;
 import android.provider.SyncStateContract;
 import android.support.test.InstrumentationRegistry;
+import android.support.test.uiautomator.UiDevice;
 import android.view.accessibility.AccessibilityWindowInfo;
 
 import com.nononsenseapps.notepad.database.DatabaseHandler;
 
 import org.junit.After;
+import org.junit.Before;
 
 public class BaseTestClass {
 
     public static final String NOTEPAD_PACKAGE = "com.nononsenseapps.notepad";
     public static final int LAUNCH_TIMEOUT = 5000;
+    protected UiDevice device;
+    public static final int GENERAL_TIMEOUT = 5000;
 
-
+    @Before
+    public final void setUpBaseTestClass(){
+        device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
+        uiautomator_helper.startApplication(device);
+    }
 
     @After
     public void tearDown() throws Exception{
-        /*
-        //clear the app's data as the test is finishing
-        PreferenceManager.
-                getDefaultSharedPreferences(
-                        context).edit().clear().commit();
-        DatabaseHandler.resetDatabase(context);
-         */
 
         //clear the app's preferences and database
         Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
@@ -37,27 +38,6 @@ public class BaseTestClass {
                 .getDefaultSharedPreferences(context)
                 .edit().clear().commit();
         DatabaseHandler.resetDatabase(context);
-
-        //grab screenshot when the test is ending
-//        InstrumentationRegistry.getInstrumentation().getUiAutomation()
-//                .executeShellCommand("screencap /storage/emulated/0/Download/screen.png")
-//                .close();
-
-//        InstrumentationRegistry.getInstrumentation().getUiAutomation()
-//                .executeShellCommand("pm clear com.nononsenseapps.notepad")
-//        .close();
-
-//        InstrumentationRegistry.getInstrumentation().getUiAutomation()
-//                .executeShellCommand("am start -W -n com.nononsenseapps.notepad/.activities.ActivityList")
-//                .close();
-
-
-//        InstrumentationRegistry.getInstrumentation().finish(-1, null);
-
-
-//                .executeShellCommand("pm clear " + NOTEPAD_PACKAGE);
-//                .close();
-
     }
 
     protected boolean isKeyboardOpened(){

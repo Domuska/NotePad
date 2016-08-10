@@ -20,14 +20,7 @@ import static junit.framework.Assert.assertNotNull;
 @SdkSuppress(minSdkVersion = 18)
 public class uiautomator_TestAddTaskListCheckItIsAddedToDrawer extends BaseTestClass{
 
-    private UiDevice device;
     private String taskListName = "a random task list";
-
-    @Before
-    public void setUp(){
-        device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
-        uiautomator_helper.startApplication(device);
-    }
 
     @Test
     public void testAddTaskListCheckItIsAddedToDrawer() throws Exception{

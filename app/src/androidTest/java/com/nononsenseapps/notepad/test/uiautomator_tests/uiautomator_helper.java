@@ -92,13 +92,14 @@ public class uiautomator_helper {
         UiScrollable recyclerView = new UiScrollable(
                 new UiSelector().resourceId("com.nononsenseapps.notepad:id/navigation_drawer"));
         recyclerView.scrollTextIntoView("Create new");
-
-        device.findObject(new UiSelector()
-                .text("Create new"))
+        device.wait(Until.findObject(
+                By.text("Create new")), BaseTestClass.GENERAL_TIMEOUT)
                 .click();
 
-        device.findObject(By.res(NOTEPAD_PACKAGE, "titleField")).setText(name);
-        device.findObject(By.res(NOTEPAD_PACKAGE, "dialog_yes")).click();
+        device.wait(Until.findObject(
+                By.res("com.nononsenseapps.notepad:id/titleField")), BaseTestClass.GENERAL_TIMEOUT)
+                .setText(name);
+        device.findObject(By.res("com.nononsenseapps.notepad:id/dialog_yes")).click();
     }
 
     public static String getMonthAndYear(){

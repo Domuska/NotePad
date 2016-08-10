@@ -13,16 +13,9 @@ import static junit.framework.Assert.assertTrue;
 
 public class uiautomator_TestAddTaskListsScrollNavigationDrawer extends BaseTestClass{
 
-    private UiDevice device;
     private String[] taskListNames = {"Lorem", "ipsum ", "dolor ", "sit ", "amet", "consectetur ",
             "adipiscing ", "elit", "sed ", "do ", "eiusmod ", "tempor ", "incididunt ",
             "ut ", "labore "};
-
-    @Before
-    public void setUp(){
-        device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
-        uiautomator_helper.startApplication(device);
-    }
 
     @Test
     public void testAddTaskListsScrollNavigationDrawer() throws Exception{
@@ -40,6 +33,5 @@ public class uiautomator_TestAddTaskListsScrollNavigationDrawer extends BaseTest
 
         assertTrue("Settings was not launched, text \"Appearance\" is not visible",
                 device.findObject(new UiSelector().text("Appearance")).exists());
-
     }
 }

@@ -22,18 +22,8 @@ import static junit.framework.Assert.assertTrue;
 @SdkSuppress(minSdkVersion = 18)
 public class uiautomator_TestAddNoteToTaskList extends BaseTestClass{
 
-    private static final String NOTEPAD_TEST_PACKAGE
-            = "com.nononsenseapps.notepad.test.uiautomator_tests";
-    private UiDevice device;
-
     private String taskListName = "a random task list";
     private String noteName1 = "prepare food";
-
-    @Before
-    public void setUp(){
-        device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
-        uiautomator_helper.startApplication(device);
-    }
 
     @Test
     public void testAddNoteToTaskList() throws Exception{
@@ -59,7 +49,6 @@ public class uiautomator_TestAddNoteToTaskList extends BaseTestClass{
             if(object.getText().equals("1"))
                 tasksNumberFound = true;
         }
-
         assertTrue("Number of tasks in task list is not found" , tasksNumberFound);
     }
 }

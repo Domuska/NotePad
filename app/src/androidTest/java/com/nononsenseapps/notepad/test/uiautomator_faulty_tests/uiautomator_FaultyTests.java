@@ -1,8 +1,11 @@
-package com.nononsenseapps.notepad.test.uiautomator_tests;
+package com.nononsenseapps.notepad.test.uiautomator_faulty_tests;
 
 import android.support.test.InstrumentationRegistry;
 import android.support.test.uiautomator.By;
 import android.support.test.uiautomator.UiDevice;
+
+import com.nononsenseapps.notepad.test.uiautomator_tests.BaseTestClass;
+import com.nononsenseapps.notepad.test.uiautomator_tests.uiautomator_helper;
 
 import org.junit.Before;
 import org.junit.Ignore;
@@ -10,7 +13,7 @@ import org.junit.Test;
 
 import static junit.framework.Assert.fail;
 
-public class uiautomator_FaultyTests extends BaseTestClass{
+public class uiautomator_FaultyTests extends BaseTestClass {
 
     UiDevice device;
     private String noteName1 = "prepare food";

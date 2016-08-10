@@ -29,19 +29,7 @@ import static junit.framework.Assert.fail;
 @SdkSuppress(minSdkVersion = 18)
 public class uiautomator_TestAddNewNoteShouldShowNameInNotesScreen extends BaseTestClass{
 
-
-    private static final String NOTEPAD_TEST_PACKAGE
-            = "com.nononsenseapps.notepad.test.uiautomator_tests";
-    private UiDevice device;
     private String noteName1 = "prepare food";
-
-    @Before
-    public void setUp(){
-        device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
-        uiautomator_helper.startApplication(device);
-    }
-
-    
 
     @Test
     public void testAddNewNoteShouldShowNameInNotesScreen() throws Exception{

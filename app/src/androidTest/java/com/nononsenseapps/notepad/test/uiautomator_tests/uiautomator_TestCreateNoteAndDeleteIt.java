@@ -16,14 +16,7 @@ import static junit.framework.Assert.assertTrue;
 
 public class uiautomator_TestCreateNoteAndDeleteIt extends BaseTestClass{
 
-    UiDevice device;
     private String noteName1 = "prepare food";
-
-    @Before
-    public void setUp(){
-        device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
-        uiautomator_helper.startApplication(device);
-    }
 
     @Test
     public void testCreateNoteAndDeleteIt() throws Exception{

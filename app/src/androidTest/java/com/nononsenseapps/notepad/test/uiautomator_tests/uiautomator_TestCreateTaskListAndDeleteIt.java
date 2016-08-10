@@ -15,14 +15,7 @@ import static junit.framework.Assert.assertFalse;
 
 public class uiautomator_TestCreateTaskListAndDeleteIt extends BaseTestClass{
 
-    UiDevice device;
     private String taskListName = "a random task list";
-
-    @Before
-    public void setUp(){
-        device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
-        uiautomator_helper.startApplication(device);
-    }
 
     @Test
     public void testCreateTaskListAndDeleteIt() throws Exception{
@@ -42,7 +35,7 @@ public class uiautomator_TestCreateTaskListAndDeleteIt extends BaseTestClass{
 
         if(deleteButton.waitForExists(LAUNCH_TIMEOUT))
             deleteButton.click();
-        device.findObject(By.text("OK")).click();
+        device.wait(Until.findObject(By.text("OK")), GENERAL_TIMEOUT).click();
 
         //check that the list is not found
         UiObject object = device.findObject(new UiSelector().text(taskListName));
