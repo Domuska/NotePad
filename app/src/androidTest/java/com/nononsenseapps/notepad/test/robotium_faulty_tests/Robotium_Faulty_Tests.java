@@ -1,4 +1,4 @@
-package com.nononsenseapps.notepad.test.robotium_tests;
+package com.nononsenseapps.notepad.test.robotium_faulty_tests;
 
 import android.content.Context;
 import android.preference.PreferenceManager;
@@ -8,6 +8,7 @@ import com.nononsenseapps.notepad.R;
 import com.nononsenseapps.notepad.activities.ActivityList;
 import com.nononsenseapps.notepad.database.DatabaseHandler;
 import com.nononsenseapps.notepad.test.Helper;
+import com.nononsenseapps.notepad.test.robotium_tests.Robotium_Helper;
 import com.robotium.solo.Solo;
 
 public class Robotium_Faulty_Tests extends ActivityInstrumentationTestCase2<ActivityList> {

@@ -41,7 +41,6 @@ public class Robotium_TestAddNewNoteShouldShowNameInNotesScreen extends Activity
         super.tearDown();
     }
 
-
     public void testAddNewNoteShouldShowNameInNotesScreen() throws Exception{
 
         solo.waitForActivity("ActivityList", 1500);
@@ -52,7 +51,5 @@ public class Robotium_TestAddNewNoteShouldShowNameInNotesScreen extends Activity
 
         boolean noteFound = solo.searchText(noteName1);
         assertTrue("Note is found", noteFound);
-
     }
-
 }

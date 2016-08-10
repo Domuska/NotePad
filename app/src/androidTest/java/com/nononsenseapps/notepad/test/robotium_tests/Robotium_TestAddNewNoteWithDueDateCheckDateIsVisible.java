@@ -17,7 +17,6 @@ public class Robotium_TestAddNewNoteWithDueDateCheckDateIsVisible extends Activi
     private static final String LAUNCHER_ACTIVITY_FULL_CLASSNAME =
             "com.nononsenseapps.notepad.ActivityList";
 
-
     public Robotium_TestAddNewNoteWithDueDateCheckDateIsVisible(){
         super(ActivityList.class);
     }
@@ -61,5 +60,4 @@ public class Robotium_TestAddNewNoteWithDueDateCheckDateIsVisible extends Activi
                 dueDateView.getVisibility(),
                 View.VISIBLE);
     }
-
 }

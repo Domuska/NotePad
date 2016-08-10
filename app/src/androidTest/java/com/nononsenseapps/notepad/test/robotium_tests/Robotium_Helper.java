@@ -81,7 +81,7 @@ public class Robotium_Helper {
      */
     public static void createTaskList(Solo solo, String taskListName){
 
-        solo.scrollRecyclerViewToBottom(1);
+//        solo.scrollRecyclerViewToBottom(1);
         solo.clickOnText("Create new");
         solo.enterText(
                 (EditText)solo.getView(R.id.titleField),

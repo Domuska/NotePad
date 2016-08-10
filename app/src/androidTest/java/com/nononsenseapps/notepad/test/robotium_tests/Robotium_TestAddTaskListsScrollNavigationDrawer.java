@@ -52,8 +52,7 @@ public class Robotium_TestAddTaskListsScrollNavigationDrawer extends ActivityIns
         }
 
         //scroll the nav drawer recycler view
-        solo.scrollRecyclerViewToBottom(1);
-
+//        solo.scrollRecyclerViewToBottom(1);
         solo.clickOnText(SETTINGS_TEXT);
         solo.searchText(SETTINGS_APPEARANCE_TEXT);
     }

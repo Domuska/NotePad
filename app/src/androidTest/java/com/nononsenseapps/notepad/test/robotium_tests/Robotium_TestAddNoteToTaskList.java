@@ -20,7 +20,6 @@ public class Robotium_TestAddNoteToTaskList extends ActivityInstrumentationTestC
     private static final String LAUNCHER_ACTIVITY_FULL_CLASSNAME =
             "com.nononsenseapps.notepad.ActivityList";
 
-
     public Robotium_TestAddNoteToTaskList(){
         super(ActivityList.class);
     }

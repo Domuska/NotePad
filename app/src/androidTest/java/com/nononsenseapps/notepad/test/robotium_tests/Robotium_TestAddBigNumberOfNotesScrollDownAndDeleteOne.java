@@ -67,8 +67,6 @@ public class Robotium_TestAddBigNumberOfNotesScrollDownAndDeleteOne extends Acti
             }
             canBeScrolled = solo.scrollDownRecyclerView(0);
         }
-
         assertTrue("note found in the list", noteFound);
     }
-
 }
