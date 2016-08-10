@@ -29,29 +29,10 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 public class Espresso_TestAddNewNoteShouldShowNameInNotesScreen extends BaseTestClass{
 
     private String noteName1;
-
-
-//    @Rule
-//    public ActivityTestRule<ActivityList> myActivityRule =
-//            new ActivityTestRule<ActivityList>(ActivityList.class);
-
     @Before
     public void initStrings(){
         noteName1 = "prepare food";
     }
-
-//    @After
-//    public void tearDown(){
-//        Context context = myActivityRule.getActivity().getApplicationContext();
-//
-//        PreferenceManager.
-//                getDefaultSharedPreferences(
-//                        context).edit().clear().commit();
-//
-//        context.deleteDatabase(DatabaseHandler.DATABASE_NAME);
-//
-//        DatabaseHandler.getInstance(context).getReadableDatabase();
-//    }
 
     @Test
     public void testAddNewNoteShouldShowNameInNotesScreen(){

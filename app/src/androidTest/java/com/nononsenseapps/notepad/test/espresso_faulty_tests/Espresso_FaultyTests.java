@@ -1,22 +1,16 @@
-package com.nononsenseapps.notepad.test.espresso_tests;
+package com.nononsenseapps.notepad.test.espresso_faulty_tests;
 
-import android.preference.PreferenceManager;
-import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
 
 import com.nononsenseapps.notepad.R;
-import com.nononsenseapps.notepad.activities.ActivityList;
 import com.nononsenseapps.notepad.test.Helper;
+import com.nononsenseapps.notepad.test.espresso_tests.BaseTestClass;
 
-import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static android.support.test.espresso.Espresso.closeSoftKeyboard;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
@@ -27,7 +21,7 @@ import static junit.framework.Assert.fail;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class Espresso_FaultyTests extends BaseTestClass{
+public class Espresso_FaultyTests extends BaseTestClass {
 
     private String noteName1;
     private String createNewText;

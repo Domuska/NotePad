@@ -34,10 +34,6 @@ public class Espresso_TestAddTaskListsScrollNavigationDrawer extends BaseTestCla
 
     String SETTINGS_TEXT, SETTINGS_APPEARANCE_TEXT;
 
-//    @Rule
-//    public ActivityTestRule<ActivityList> myActivityRule =
-//            new ActivityTestRule<ActivityList>(ActivityList.class);
-
     @Before
     public void initStrings(){
         SETTINGS_TEXT =

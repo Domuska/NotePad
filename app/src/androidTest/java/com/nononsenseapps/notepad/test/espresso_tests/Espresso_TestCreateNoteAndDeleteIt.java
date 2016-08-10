@@ -30,10 +30,6 @@ public class Espresso_TestCreateNoteAndDeleteIt extends BaseTestClass{
 
     private String noteName1;
 
-//    @Rule
-//    public ActivityTestRule<ActivityList> myActivityRule =
-//            new ActivityTestRule<ActivityList>(ActivityList.class);
-
     @Before
     public void initStrings(){
         noteName1 = "prepare food";
@@ -47,10 +43,6 @@ public class Espresso_TestCreateNoteAndDeleteIt extends BaseTestClass{
         Helper.createNoteWithName(noteName1);
         Helper.navigateUp();
 
-//        Helper.scrollRecyclerViewToText(noteName1)
-//                .check(matches(withText(noteName1)));
-
-
         onView(withText(noteName1)).perform(click());
         onView(withId(R.id.menu_delete)).perform(click());
         onView(withId(android.R.id.button1)).perform(click());
@@ -62,8 +54,4 @@ public class Espresso_TestCreateNoteAndDeleteIt extends BaseTestClass{
         onView(withText(noteName1)).check(doesNotExist());
 
     }
-
-
-
-
 }

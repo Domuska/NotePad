@@ -28,10 +28,6 @@ public class Espresso_TestAddNoteToTaskList extends BaseTestClass{
 
     private String taskListName, noteName1;
 
-//    @Rule
-//    public ActivityTestRule<ActivityList> myActivityRule =
-//            new ActivityTestRule<ActivityList>(ActivityList.class);
-
     @Before
     public void initStrings(){
         taskListName = "a random task list";

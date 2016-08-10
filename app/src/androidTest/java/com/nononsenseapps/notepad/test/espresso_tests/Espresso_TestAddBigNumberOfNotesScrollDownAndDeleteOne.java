@@ -31,6 +31,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static android.view.View.FIND_VIEWS_WITH_TEXT;
 import static com.google.common.truth.Truth.assertThat;
+import static junit.framework.Assert.fail;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
@@ -45,8 +46,6 @@ public class Espresso_TestAddBigNumberOfNotesScrollDownAndDeleteOne extends Base
             "write another book", "scrap the book project", "start a blog",
             "  ", "     "
             };
-
-
 
     @Test
     public void testAddBigNumberOfNotesScrollDownAndDeleteOne(){

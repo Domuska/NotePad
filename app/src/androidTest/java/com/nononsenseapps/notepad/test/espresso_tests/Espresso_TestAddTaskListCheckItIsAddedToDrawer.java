@@ -28,18 +28,12 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 public class Espresso_TestAddTaskListCheckItIsAddedToDrawer extends BaseTestClass{
 
 
-    private String taskListName, noteName1;
-
-//    @Rule
-//    public ActivityTestRule<ActivityList> myActivityRule =
-//            new ActivityTestRule<ActivityList>(ActivityList.class);
+    private String taskListName;
 
     @Before
     public void initStrings(){
         taskListName = "a random task list";
-        noteName1 = "prepare food";
     }
-
 
     @Test
     public void testAddTaskListCheckItIsAddedToDrawer(){
@@ -50,9 +44,6 @@ public class Espresso_TestAddTaskListCheckItIsAddedToDrawer extends BaseTestClas
         //check that the new note is found and has the correct text
         onView(withText(taskListName)).check(matches(isDisplayed()));
     }
-
-
-
 
 }
 

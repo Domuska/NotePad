@@ -36,10 +36,6 @@ public class Espresso_TestCompletedTasksAreCleared extends BaseTestClass{
 
     String noteName1, noteName2, noteName3, noteName4;
 
-//    @Rule
-//    public ActivityTestRule<ActivityList> myActivityRule =
-//            new ActivityTestRule<ActivityList>(ActivityList.class);
-
     @Before
     public void initStrings(){
         noteName1 = "prepare food";
@@ -80,6 +76,8 @@ public class Espresso_TestCompletedTasksAreCleared extends BaseTestClass{
         );
     }
 
+    //custom viewAction for clicking a child view of another view,
+    //clicks the view that is found with the supplied ID
     private static class MyViewAction{
 
         public static ViewAction clickChildViewWithId(final int id){

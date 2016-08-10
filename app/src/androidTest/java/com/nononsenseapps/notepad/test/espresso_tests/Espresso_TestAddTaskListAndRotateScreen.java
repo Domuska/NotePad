@@ -33,10 +33,6 @@ public class Espresso_TestAddTaskListAndRotateScreen extends BaseTestClass{
 
     private String taskListName;
 
-//    @Rule
-//    public ActivityTestRule<ActivityList> myActivityRule =
-//            new ActivityTestRule<ActivityList>(ActivityList.class);
-
     @Before
     public void initStrings(){
         taskListName = "a random task list";
@@ -54,9 +50,7 @@ public class Espresso_TestAddTaskListAndRotateScreen extends BaseTestClass{
         onView(isRoot()).perform(orientationPortrait());
 
         //make sure the task list is still visible
-
         RecyclerViewActions.scrollTo(hasDescendant(withText(taskListName)));
         onView(withText(taskListName)).check(matches(isDisplayed()));
-
     }
 }

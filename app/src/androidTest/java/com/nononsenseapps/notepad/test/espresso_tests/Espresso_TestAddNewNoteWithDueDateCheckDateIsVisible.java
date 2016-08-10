@@ -29,10 +29,6 @@ public class Espresso_TestAddNewNoteWithDueDateCheckDateIsVisible extends BaseTe
 
     private String noteName1;
 
-//    @Rule
-//    public ActivityTestRule<ActivityList> myActivityRule =
-//            new ActivityTestRule<ActivityList>(ActivityList.class);
-
     @Before
     public void initStrings() {
         noteName1 = "prepare food";

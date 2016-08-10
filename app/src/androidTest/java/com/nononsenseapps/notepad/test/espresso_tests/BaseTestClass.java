@@ -40,11 +40,11 @@ public class BaseTestClass {
                         context).edit().clear().commit();
         DatabaseHandler.resetDatabase(context);
 
-        //start the original activity
-//        Intent i = context.getPackageManager()
-//                .getLaunchIntentForPackage(context.getPackageName());
-//        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//        context.startActivity(i);
+        //start the original activity, make sure we get back from settings and such
+        Intent i = context.getPackageManager()
+                .getLaunchIntentForPackage(context.getPackageName());
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        context.startActivity(i);
 
     }
 

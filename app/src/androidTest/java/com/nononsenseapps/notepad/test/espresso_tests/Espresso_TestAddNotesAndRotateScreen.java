@@ -35,11 +35,6 @@ public class Espresso_TestAddNotesAndRotateScreen extends BaseTestClass{
         noteName4 = "sleep";
     }
 
-//    @Rule
-//    public ActivityTestRule<ActivityList> myActivityRule =
-//            new ActivityTestRule<ActivityList>(ActivityList.class);
-
-
     @Test
     public void testAddNotesAndRotateScreen(){
 

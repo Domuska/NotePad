@@ -31,10 +31,6 @@ public class Espresso_TestCreateTaskListAndDeleteIt extends BaseTestClass{
 
     private String taskListName;
 
-//    @Rule
-//    public ActivityTestRule<ActivityList> myActivityRule =
-//            new ActivityTestRule<ActivityList>(ActivityList.class);
-
     @Before
     public void initStrings(){
         taskListName = "a random task list";

@@ -1,6 +1,8 @@
 package com.nononsenseapps.notepad.test.espresso_tests;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.contrib.PickerActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
@@ -12,6 +14,7 @@ import com.nononsenseapps.notepad.R;
 import com.nononsenseapps.notepad.activities.ActivityList;
 import com.nononsenseapps.notepad.test.Helper;
 
+import org.hamcrest.CoreMatchers;
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Rule;
@@ -21,6 +24,8 @@ import org.junit.runner.RunWith;
 import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.matcher.RootMatchers.isPlatformPopup;
+import static android.support.test.espresso.matcher.RootMatchers.withDecorView;
 import static android.support.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withClassName;
@@ -29,10 +34,15 @@ import static android.support.test.espresso.matcher.ViewMatchers.withEffectiveVi
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static junit.framework.Assert.assertTrue;
+import static junit.framework.Assert.fail;
+import static org.hamcrest.CoreMatchers.anything;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.endsWith;
+import static org.hamcrest.Matchers.hasToString;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.startsWith;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNot.not;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
@@ -63,22 +73,30 @@ public class Espresso_TestAddNotesOrderByDueDate extends BaseTestClass{
         day23 = "23 " + currentMonthAndYear;
     }
 
-
-
     @Test
     public void testAddNotesOrderByDueDate(){
 
-
+        fail("Automating the datetimepicker not possible, failing test");
         Helper.closeDrawer();
 
         Helper.createNoteWithName(noteName1);
 
 //        onView(withText("Due date")).perform(click());
         onView(withId(R.id.dueDateBox)).perform(click());
+        Activity activity = myActivityRule.getActivity();
 
-        onData(withContentDescription(day04))
-                .inAdapterView(withClassName(endsWith("SimpleDayPickerView")))
+//        onView(withContentDescription(day04))
+//                .inRoot(isPlatformPopup())
+//                .inRoot(withDecorView(not(is(activity.getWindow().getDecorView()))))
+//                .perform(click());
+
+        onData(anything())
+                .atPosition(3)
+                .inAdapterView(withClassName(CoreMatchers.endsWith("SimpleDayPickerView")))
                 .perform(click());
+//        onData(hasToString(day04))
+//                .inAdapterView(withClassName(endsWith("SimpleDayPickerView")))
+//                .perform(click());
 
 //        onData(allOf(
 ////                withClassName(start"SimpleDayPickerView"),
