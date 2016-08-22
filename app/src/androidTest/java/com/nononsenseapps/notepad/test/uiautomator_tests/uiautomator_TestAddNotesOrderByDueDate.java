@@ -12,6 +12,7 @@ import android.support.test.uiautomator.Until;
 import com.nononsenseapps.notepad.test.Helper;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
@@ -38,6 +39,7 @@ public class uiautomator_TestAddNotesOrderByDueDate extends BaseTestClass{
     }
 
     @Test
+    @Ignore
     public void testAddNotesOrderByDueDate() throws Exception{
 
         String[] expectedNoteOrder = {noteName2, noteName1, noteName4, noteName3};
