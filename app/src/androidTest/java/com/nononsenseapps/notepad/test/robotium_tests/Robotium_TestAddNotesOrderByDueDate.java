@@ -56,7 +56,7 @@ public class Robotium_TestAddNotesOrderByDueDate extends ActivityInstrumentation
     }
 
     //this test does not work
-    public void testAddNotesOrderByDueDate(){
+    public void estAddNotesOrderByDueDate(){
 
         fail("Handling the custom view is not possible with Robotium, failing test");
         Robotium_Helper.closeDrawer(solo);

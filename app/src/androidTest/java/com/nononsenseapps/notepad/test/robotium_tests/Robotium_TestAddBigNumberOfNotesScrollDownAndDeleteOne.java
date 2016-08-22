@@ -52,7 +52,7 @@ public class Robotium_TestAddBigNumberOfNotesScrollDownAndDeleteOne extends Acti
         super.tearDown();
     }
 
-    public void testAddBigNumberOfNotesScrollDownAndDeleteOne(){
+    public void estAddBigNumberOfNotesScrollDownAndDeleteOne(){
 
         Robotium_Helper.closeDrawer(solo);
 
