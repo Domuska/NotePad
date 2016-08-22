@@ -17,6 +17,7 @@ import com.nononsenseapps.notepad.test.Helper;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.Matchers;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -74,6 +75,7 @@ public class Espresso_TestAddNotesOrderByDueDate extends BaseTestClass{
     }
 
     @Test
+    @Ignore
     public void testAddNotesOrderByDueDate(){
 
         fail("Automating the datetimepicker not possible, failing test");

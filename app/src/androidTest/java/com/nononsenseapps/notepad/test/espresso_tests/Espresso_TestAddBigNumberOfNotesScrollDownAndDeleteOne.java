@@ -48,6 +48,7 @@ public class Espresso_TestAddBigNumberOfNotesScrollDownAndDeleteOne extends Base
             };
 
     @Test
+    @Ignore
     public void testAddBigNumberOfNotesScrollDownAndDeleteOne(){
 
         Helper.closeDrawer();
