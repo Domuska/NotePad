@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -43,8 +44,6 @@ public class NotesFaultyTests {
         capabilities.setCapability("app", app.getAbsolutePath());
         capabilities.setCapability("appPackage", "com.nononsenseapps.notepad");
         capabilities.setCapability("appActivity", ".activities.ActivityList");
-//        capabilities.setCapability("fullReset", false);
-//        capabilities.setCapability("noReset", false);
 
         driver = new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         driverWait = new WebDriverWait(driver, 50);
@@ -59,6 +58,7 @@ public class NotesFaultyTests {
     }
 
     @Test
+    @Ignore
     public void testAddNewNoteSearchForFaultyNoteName(){
 
         closeDrawer();
@@ -75,6 +75,7 @@ public class NotesFaultyTests {
     }
 
     @Test
+    @Ignore
     public void testSearchForElementWithTextShouldFailOnView(){
 
         closeDrawer();
@@ -85,6 +86,7 @@ public class NotesFaultyTests {
 
     //search for element with valid ID but that should not be visible
     @Test
+    @Ignore
     public void testSearchForElementWithIDShouldFailOnView(){
         closeDrawer();
         driver.findElement(By.id("com.nononsenseapps.notepad:id/fab")).click();
@@ -95,6 +97,7 @@ public class NotesFaultyTests {
 
     //search for element with a faulty ID that is not available at all
     @Test
+    @Ignore
     public void testSearchForElementWithFaultyID(){
         closeDrawer();
         driver.findElement(By.id("com.nononsenseapps.notepad:id/fab" + "asdf")).click();
@@ -103,6 +106,7 @@ public class NotesFaultyTests {
 
     //search for element with identifier that matches multiple views
     @Test
+    @Ignore
     public void testSearchForElementWithAmbiguousIdentifier(){
 
         closeDrawer();
