@@ -8,6 +8,7 @@ import com.nononsenseapps.notepad.test.Helper;
 import com.nononsenseapps.notepad.test.espresso_tests.BaseTestClass;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -26,20 +27,14 @@ public class Espresso_FaultyTests extends BaseTestClass {
     private String noteName1;
     private String createNewText;
 
-
-//    @Rule
-//    public ActivityTestRule<ActivityList> myActivityRule =
-//            new ActivityTestRule<ActivityList>(ActivityList.class);
-
     @Before
     public void initStrings(){
         noteName1 = "prepare food";
         createNewText = myActivityRule.getActivity().getResources().getString(R.string.menu_createnew);
     }
 
-
-
     @Test
+    @Ignore
     public void testAddNewNoteSearchForFaultyNoteName(){
 
         Helper.closeDrawer();
@@ -52,6 +47,7 @@ public class Espresso_FaultyTests extends BaseTestClass {
     }
 
     @Test
+    @Ignore
     public void testSearchForElementWithTextShouldFailOnView(){
         Helper.closeDrawer();
         onView(withText(createNewText)).perform(click());
@@ -59,6 +55,7 @@ public class Espresso_FaultyTests extends BaseTestClass {
     }
 
     @Test
+    @Ignore
     public void testSearchForElementWithIDShouldFailOnView(){
         Helper.closeDrawer();
         onView(withId(R.id.fab)).perform(click());
@@ -67,12 +64,14 @@ public class Espresso_FaultyTests extends BaseTestClass {
     }
 
     @Test
+    @Ignore
     public void testSearchForElementWithFaultyID(){
 //        onView(withId(R.id.faulty_id)).perform(click());
         fail();
     }
 
     @Test
+    @Ignore
     public void testSearchForElementWithAmbiguousIdentifier(){
         Helper.closeDrawer();
 
