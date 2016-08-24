@@ -41,7 +41,7 @@ public class Robotium_Faulty_Tests extends ActivityInstrumentationTestCase2<Acti
         super.tearDown();
     }
 
-    public void testAddNewNoteSearchForFaultyNoteName(){
+    public void estAddNewNoteSearchForFaultyNoteName(){
 
         Robotium_Helper.closeDrawer(solo);
 
@@ -52,14 +52,14 @@ public class Robotium_Faulty_Tests extends ActivityInstrumentationTestCase2<Acti
         assertFalse("should have failed before this", true);
     }
 
-    public void testSearchForElementWithTextShouldFailOnView(){
+    public void estSearchForElementWithTextShouldFailOnView(){
 
         Robotium_Helper.closeDrawer(solo);
         solo.clickOnText(createNewText);
         assertFalse("should have failed before this", true);
     }
 
-    public void testSearchForElementWithIDShouldFailOnView(){
+    public void estSearchForElementWithIDShouldFailOnView(){
         Robotium_Helper.closeDrawer(solo);
 
         solo.clickOnView(solo.getView(R.id.fab));
@@ -68,11 +68,11 @@ public class Robotium_Faulty_Tests extends ActivityInstrumentationTestCase2<Acti
         assertFalse("should have failed before this", true);
     }
 
-    public void testSearchForElementWithFaultyID(){
+    public void estSearchForElementWithFaultyID(){
 //        solo.clickOnView(solo.getView(R.id.faulty_id));
     }
 
-    public void testSearchForElementWithAmbiguousIdentifier(){
+    public void estSearchForElementWithAmbiguousIdentifier(){
         Robotium_Helper.closeDrawer(solo);
 
         Robotium_Helper.createNoteWithName(solo, noteName1);
