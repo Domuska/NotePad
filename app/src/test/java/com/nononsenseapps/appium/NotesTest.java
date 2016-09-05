@@ -65,7 +65,7 @@ public class NotesTest {
         capabilities.setCapability("deviceName", "Nexus 5x 1");
         capabilities.setCapability("platformVersion", "6.0");
         capabilities.setCapability(MobileCapabilityType.APP,
-                "C:\\Users\\Tomi\\Projects\\notepad_own_fork\\NotePad\\nononsensenotes-6.0.0-beta.5-52-g634199b-free-debug.apk");
+                "C:\\Users\\Tomi\\Projects\\notepad_own_fork\\NotePad\\nononsensenotes-6.0.0-beta.5-11-g3859c1d-free-debug.apk");
         capabilities.setCapability("appPackage", "com.nononsenseapps.notepad");
         capabilities.setCapability("appActivity", ".activities.ActivityList");
 
@@ -77,6 +77,9 @@ public class NotesTest {
         driverWait = new WebDriverWait(driver, 20);
 
         driver.launchApp();
+        driverWait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.id("com.nononsenseapps.notepad:id/navigation_drawer")
+        ));
     }
 
     @After
@@ -473,7 +476,7 @@ public class NotesTest {
     }
 
     private void closeDrawer(){
-        WebElement drawerLayout = driver.findElementByAccessibilityId("The drawer layout");
+        WebElement drawerLayout = driver.findElementById("com.nononsenseapps.notepad:id/navigation_drawer");
 
         //find the middle point of the drawer layout
         Dimension dimension = drawerLayout.getSize();
