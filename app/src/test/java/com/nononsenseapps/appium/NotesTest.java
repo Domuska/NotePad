@@ -64,9 +64,8 @@ public class NotesTest {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("deviceName", "Nexus 5x 1");
         capabilities.setCapability("platformVersion", "6.0");
-//        capabilities.setCapability("app", app.getAbsolutePath());
         capabilities.setCapability(MobileCapabilityType.APP,
-                "C:\\Users\\Tomi\\Projects\\notepad_own_fork\\NotePad\\app\\build\\outputs\\apk\\nononsensenotes-6.0.0-beta.5-52-g66c8dfd-free-debug.apk");
+                "C:\\Users\\Tomi\\Projects\\notepad_own_fork\\NotePad\\nononsensenotes-6.0.0-beta.5-52-g634199b-free-debug.apk");
         capabilities.setCapability("appPackage", "com.nononsenseapps.notepad");
         capabilities.setCapability("appActivity", ".activities.ActivityList");
 
@@ -76,6 +75,8 @@ public class NotesTest {
 
         driver = new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         driverWait = new WebDriverWait(driver, 20);
+
+        driver.launchApp();
     }
 
     @After
