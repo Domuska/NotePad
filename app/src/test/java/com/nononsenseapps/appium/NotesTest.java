@@ -65,7 +65,7 @@ public class NotesTest {
         capabilities.setCapability("deviceName", "Nexus 5x 1");
         capabilities.setCapability("platformVersion", "6.0");
         capabilities.setCapability(MobileCapabilityType.APP,
-                "C:\\Users\\Tomi\\Projects\\notepad_own_fork\\NotePad\\nononsensenotes-6.0.0-beta.5-11-g3859c1d-free-debug.apk");
+                "C:\\Users\\Tomi\\Projects\\notepad_own_fork\\nononsensenotes-6.0.0-beta.5-52-g634199b-free-debug-unaligned.apk");
         capabilities.setCapability("appPackage", "com.nononsenseapps.notepad");
         capabilities.setCapability("appActivity", ".activities.ActivityList");
 
@@ -305,7 +305,9 @@ public class NotesTest {
 
         driver.findElementByAccessibilityId("More options").click();
         driver.findElement(By.xpath("//*[@text='Clear completed']")).click();
-        driver.findElement(By.xpath("//*[@text='OK']")).click();
+        driverWait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//*[@text='OK']"))).click();
+        //driver.findElement(By.xpath("//*[@text='OK']")).click();
 
         List<WebElement> remainingTasks = getNotesInNotesList();
         List<String> noteTitles = new ArrayList<String>();
@@ -380,7 +382,8 @@ public class NotesTest {
         navigateUp();
 
         //check that the date field is visible
-        driver.findElement(By.xpath("//*[@text='" + noteName1 + "']")).click();
+        driverWait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//*[@text='" + noteName1 + "']"))).click();
         driver.hideKeyboard();
         driver.findElement(By.id("com.nononsenseapps.notepad:id/notificationDate"));
     }
