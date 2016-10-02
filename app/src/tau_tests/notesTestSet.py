@@ -7,7 +7,7 @@ class NotesTests(UITestCase):
         #launch.app('com.nononsenseapps.notepad/.activities.ActivityList')
         #launch.activity('com.nononsenseapps.notepad', '.activities.ActivityList')
         launch.activity('com.nononsenseapps.notepad',\
-        '.activities.ActivityList', wait=5)
+        '.activities.ActivityList')
         
         global taskListName
         taskListName = "a random task list"
