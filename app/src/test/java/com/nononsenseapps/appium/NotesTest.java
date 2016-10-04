@@ -1,5 +1,7 @@
 package com.nononsenseapps.appium;
 
+import com.nononsenseapps.helpers.Log;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -9,6 +11,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.ScreenOrientation;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -384,7 +387,13 @@ public class NotesTest {
         //check that the date field is visible
         driverWait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//*[@text='" + noteName1 + "']"))).click();
-        driver.hideKeyboard();
+        //try-catch since if the keyboard is not visible, this might throw an exception, weirdly
+        try {
+            driver.hideKeyboard();
+        }catch(WebDriverException e){
+            System.out.println("Problem with closing keyboard");
+            Log.d("testAddNewNoteWithReminderDateAndTime", "Problem with closing keyboard");
+        }
         driver.findElement(By.id("com.nononsenseapps.notepad:id/notificationDate"));
     }
 
