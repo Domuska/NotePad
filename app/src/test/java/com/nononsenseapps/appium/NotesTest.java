@@ -392,7 +392,6 @@ public class NotesTest {
             driver.hideKeyboard();
         }catch(WebDriverException e){
             System.out.println("Problem with closing keyboard");
-            Log.d("testAddNewNoteWithReminderDateAndTime", "Problem with closing keyboard");
         }
         driver.findElement(By.id("com.nononsenseapps.notepad:id/notificationDate"));
     }
