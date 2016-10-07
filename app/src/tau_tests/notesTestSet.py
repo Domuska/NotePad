@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-import time
+import time, csv
+from datetime import datetime, time
 class NotesTests(UITestCase):
-    
     
     def setUp(self):
         #launch.app('com.nononsenseapps.notepad/.activities.ActivityList')
@@ -11,7 +11,7 @@ class NotesTests(UITestCase):
         
         global taskListName
         taskListName = "a random task list"
-        
+            
         global noteName1 
         noteName1 = "prepare food"
         
@@ -46,6 +46,15 @@ class NotesTests(UITestCase):
             3. Verify that the note is in the list
            
         """
+        
+        log("write starting time to .csv for measurement purposes")
+        csvtime = [datetime.time()]
+        log(csvtime)
+        csvFile = open(r"C:\Users\\Tomi\testAutomation\measurements\notes\tau\taunotes_tau.csv", "w")
+        Fileout = csv.writer(csvFile, delimiter = ',', quoting = csv.QUOTE_NONE)
+        Fileout.writerow(csvtime)
+        csvFile.close()
+        
         log('Step1: Insert test step description')
         self.closeDrawer()
         
@@ -164,7 +173,7 @@ class NotesTests(UITestCase):
         #    fail("note found, was not deleted properly!")
         
         
-    @testCaseInfo('<Add notes and order by due date>', deviceCount=1)
+    @testCaseInfo('<Add path and order by due date>', deviceCount=1)
     def testAddNotesOrderByDueDate(self):
         """
             1. add notes with due dates
