@@ -27,6 +27,8 @@ class testCreateTaskListAndDeleteIt(UITestCase):
             hourNow = "0" + hourNow
         if timeNow.minute < 10:
             minuteNow = "0" + minuteNow
+        if timeNow.second < 10:
+            secondNow = "0" + secondNow
         
         #format test execution ending time
         endTime = hourNow + ":" + minuteNow + ":" + secondNow
