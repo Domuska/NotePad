@@ -4,7 +4,7 @@ class testAddTaskListAndRotateScreen(UITestCase):
     
     def setUp(self):
         launch.activity('com.nononsenseapps.notepad',\
-        '.activities.ActivityList')
+        '.activities.ActivityList', verify=True)
         
         global taskListName
         taskListName = "a random task list"

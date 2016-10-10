@@ -27,7 +27,7 @@ class testAddNewNoteShouldShowNameInNotesScreen(UITestCase):
         #TEST CODE STARTS FROM HERE
         
         launch.activity('com.nononsenseapps.notepad',\
-        '.activities.ActivityList')
+        '.activities.ActivityList', verify=True)
         global noteName1
         noteName1 = "prepare food"
         
@@ -35,7 +35,7 @@ class testAddNewNoteShouldShowNameInNotesScreen(UITestCase):
         packages.forceStop('com.nononsenseapps.notepad')
         packages.clearData('com.nononsenseapps.notepad')
 
-    @testCaseInfo('<Add a new note>', deviceCount=1)
+    @testCaseInfo('<FIRST_TEST Add a new note>', deviceCount=1)
     def testAddNewNoteShouldShowNameInNotesScreen(self):
         """ Insert brief description of the test case
 

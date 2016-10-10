@@ -4,7 +4,7 @@ class testAddTaskListsScrollNavigationDrawer(UITestCase):
     
     def setUp(self):
         launch.activity('com.nononsenseapps.notepad',\
-        '.activities.ActivityList')
+        '.activities.ActivityList', verify=True)
         
         global taskListNames
         taskListNames = ["Lorem", "ipsum ", "dolor ", "sit ", "amet", "consectetur ",\

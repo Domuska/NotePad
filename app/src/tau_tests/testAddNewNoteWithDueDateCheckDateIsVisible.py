@@ -4,7 +4,7 @@ class InsertTestClassNameHere(UITestCase):
     
     def setUp(self):
         launch.activity('com.nononsenseapps.notepad',\
-        '.activities.ActivityList')
+        '.activities.ActivityList', verify=True)
         
         global noteName1 
         noteName1 = "prepare food"
