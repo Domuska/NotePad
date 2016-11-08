@@ -2,17 +2,13 @@ package com.nononsenseapps.notepad.test.espresso_tests;
 
 
 import android.support.test.espresso.contrib.RecyclerViewActions;
-import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
 
 import com.nononsenseapps.notepad.R;
-import com.nononsenseapps.notepad.activities.ActivityList;
-import com.nononsenseapps.notepad.test.Helper;
+import com.nononsenseapps.notepad.test.Espresso_Helper;
 
-import org.junit.After;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -46,8 +42,8 @@ public class Espresso_TestAddTaskListsScrollNavigationDrawer extends BaseTestCla
     public void testAddTaskListsScrollNavigationDrawer(){
 
         for(String name : taskListNames){
-            Helper.createTaskList(name);
-            Helper.openDrawer();
+            Espresso_Helper.createTaskList(name);
+            Espresso_Helper.openDrawer();
         }
 
         onView(withId(R.id.navigation_drawer)).perform(RecyclerViewActions.actionOnItem(

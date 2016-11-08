@@ -1,15 +1,11 @@
 package com.nononsenseapps.notepad.test.espresso_tests;
 
-import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
 
-import com.nononsenseapps.notepad.activities.ActivityList;
-import com.nononsenseapps.notepad.test.Helper;
+import com.nononsenseapps.notepad.test.Espresso_Helper;
 
-import org.junit.After;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -41,8 +37,8 @@ public class Espresso_TestAddNotesAndRotateScreen extends BaseTestClass{
 
         String[] noteNames = {noteName1, noteName2, noteName3, noteName4};
 
-        Helper.closeDrawer();
-        Helper.createNotes(noteNames);
+        Espresso_Helper.closeDrawer();
+        Espresso_Helper.createNotes(noteNames);
 
         // rotate screen
         onView(isRoot()).perform(orientationLandscape());

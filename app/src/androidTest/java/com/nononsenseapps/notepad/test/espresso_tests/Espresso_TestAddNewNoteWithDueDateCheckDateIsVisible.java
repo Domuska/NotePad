@@ -1,20 +1,15 @@
 package com.nononsenseapps.notepad.test.espresso_tests;
 
 
-import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
 
 import com.nononsenseapps.notepad.R;
-
-import com.nononsenseapps.notepad.activities.ActivityList;
-import com.nononsenseapps.notepad.test.Helper;
+import com.nononsenseapps.notepad.test.Espresso_Helper;
 
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -38,13 +33,13 @@ public class Espresso_TestAddNewNoteWithDueDateCheckDateIsVisible extends BaseTe
     @Test
     public void testAddNewNoteWithDueDateCheckDateIsVisible() {
 
-        Helper.closeDrawer();
+        Espresso_Helper.closeDrawer();
 
-        Helper.createNoteWithName(noteName1);
+        Espresso_Helper.createNoteWithName(noteName1);
         onView(withId(R.id.dueDateBox)).perform(click());
         onView(withId(R.id.done)).perform(click());
 
-        Helper.navigateUp();
+        Espresso_Helper.navigateUp();
         onView(withId(R.id.date)).check(matches(isDisplayed()));
     }
 }

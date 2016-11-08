@@ -4,7 +4,7 @@ import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
 
 import com.nononsenseapps.notepad.R;
-import com.nononsenseapps.notepad.test.Helper;
+import com.nononsenseapps.notepad.test.Espresso_Helper;
 import com.nononsenseapps.notepad.test.espresso_tests.BaseTestClass;
 
 import org.junit.Before;
@@ -37,10 +37,10 @@ public class Espresso_FaultyTests extends BaseTestClass {
     @Ignore
     public void testAddNewNoteSearchForFaultyNoteName(){
 
-        Helper.closeDrawer();
+        Espresso_Helper.closeDrawer();
 
-        Helper.createNoteWithName(noteName1);
-        Helper.navigateUp();
+        Espresso_Helper.createNoteWithName(noteName1);
+        Espresso_Helper.navigateUp();
 
         onView(withText(noteName1)).check(matches(withText(noteName1 + "asdf")));
         assertFalse("should have failed before this", true);
@@ -49,7 +49,7 @@ public class Espresso_FaultyTests extends BaseTestClass {
     @Test
     @Ignore
     public void testSearchForElementWithTextShouldFailOnView(){
-        Helper.closeDrawer();
+        Espresso_Helper.closeDrawer();
         onView(withText(createNewText)).perform(click());
         assertFalse("should have failed before this", true);
     }
@@ -57,7 +57,7 @@ public class Espresso_FaultyTests extends BaseTestClass {
     @Test
     @Ignore
     public void testSearchForElementWithIDShouldFailOnView(){
-        Helper.closeDrawer();
+        Espresso_Helper.closeDrawer();
         onView(withId(R.id.fab)).perform(click());
         onView(withId(R.id.fab)).perform(click());
         assertFalse("should have failed before this", true);
@@ -73,12 +73,12 @@ public class Espresso_FaultyTests extends BaseTestClass {
     @Test
     @Ignore
     public void testSearchForElementWithAmbiguousIdentifier(){
-        Helper.closeDrawer();
+        Espresso_Helper.closeDrawer();
 
-        Helper.createNoteWithName(noteName1);
-        Helper.navigateUp();
-        Helper.createNoteWithName(noteName1);
-        Helper.navigateUp();
+        Espresso_Helper.createNoteWithName(noteName1);
+        Espresso_Helper.navigateUp();
+        Espresso_Helper.createNoteWithName(noteName1);
+        Espresso_Helper.navigateUp();
 
         onView(withText(noteName1)).perform(click());
         assertFalse("should have failed before this", true);
