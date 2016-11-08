@@ -1,13 +1,10 @@
 package com.nononsenseapps.notepad.test.uiautomator_tests;
 
-import android.support.test.InstrumentationRegistry;
 import android.support.test.uiautomator.By;
-import android.support.test.uiautomator.UiDevice;
 import android.support.test.uiautomator.UiObject;
 import android.support.test.uiautomator.UiObject2;
 import android.support.test.uiautomator.UiSelector;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;

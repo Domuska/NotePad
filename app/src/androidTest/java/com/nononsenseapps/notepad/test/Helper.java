@@ -1,19 +1,13 @@
 package com.nononsenseapps.notepad.test;
 
-import com.nononsenseapps.notepad.*;
-import com.nononsenseapps.notepad.database.Task;
-import com.nononsenseapps.notepad.database.TaskList;
-import com.nononsenseapps.notepad.R;
-
-
 import android.content.Context;
-
 import android.database.Cursor;
 import android.support.annotation.NonNull;
 
+import com.nononsenseapps.notepad.database.Task;
+import com.nononsenseapps.notepad.database.TaskList;
 
 import java.text.DateFormat;
-
 import java.util.Date;
 
 

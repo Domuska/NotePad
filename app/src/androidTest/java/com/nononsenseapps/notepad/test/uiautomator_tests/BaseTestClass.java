@@ -1,12 +1,9 @@
 package com.nononsenseapps.notepad.test.uiautomator_tests;
 
 
-import android.app.Instrumentation;
 import android.app.UiAutomation;
 import android.content.Context;
-import android.os.ParcelFileDescriptor;
 import android.preference.PreferenceManager;
-import android.provider.SyncStateContract;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.uiautomator.UiDevice;
 import android.view.accessibility.AccessibilityWindowInfo;

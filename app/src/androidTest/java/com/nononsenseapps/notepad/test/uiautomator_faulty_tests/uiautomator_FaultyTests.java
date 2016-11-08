@@ -11,8 +11,6 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import static junit.framework.Assert.fail;
-
 public class uiautomator_FaultyTests extends BaseTestClass {
 
     UiDevice device;

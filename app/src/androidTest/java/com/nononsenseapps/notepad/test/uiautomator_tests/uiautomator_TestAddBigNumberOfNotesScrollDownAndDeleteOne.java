@@ -1,17 +1,13 @@
 package com.nononsenseapps.notepad.test.uiautomator_tests;
 
-import android.support.test.InstrumentationRegistry;
 import android.support.test.uiautomator.By;
-import android.support.test.uiautomator.UiDevice;
 import android.support.test.uiautomator.UiScrollable;
 import android.support.test.uiautomator.UiSelector;
 
-import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertFalse;
-import static junit.framework.Assert.fail;
 
 public class uiautomator_TestAddBigNumberOfNotesScrollDownAndDeleteOne extends BaseTestClass{
 
