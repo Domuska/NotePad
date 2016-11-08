@@ -1,30 +1,10 @@
 package com.nononsenseapps.notepad.test;
 
-import com.nononsenseapps.notepad.*;
-import com.nononsenseapps.notepad.database.Task;
-import com.nononsenseapps.notepad.database.TaskList;
-
 import android.content.Context;
 import android.database.Cursor;
-import android.support.annotation.NonNull;
-import android.support.test.espresso.UiController;
-import android.support.test.espresso.ViewAction;
-import android.support.test.espresso.ViewInteraction;
-import android.support.test.espresso.contrib.DrawerActions;
-import android.support.test.espresso.contrib.RecyclerViewActions;
-import android.view.View;
 
-import org.hamcrest.Matcher;
-
-import java.text.DateFormat;
-import java.util.Date;
-
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.action.ViewActions.typeText;
-import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import com.nononsenseapps.notepad.database.Task;
+import com.nononsenseapps.notepad.database.TaskList;
 
 public class Helper {
 

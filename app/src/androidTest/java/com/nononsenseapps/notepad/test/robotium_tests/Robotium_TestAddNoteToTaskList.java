@@ -3,12 +3,9 @@ package com.nononsenseapps.notepad.test.robotium_tests;
 import android.content.Context;
 import android.preference.PreferenceManager;
 import android.test.ActivityInstrumentationTestCase2;
-import android.widget.EditText;
 
-import com.nononsenseapps.notepad.R;
 import com.nononsenseapps.notepad.activities.ActivityList;
 import com.nononsenseapps.notepad.database.DatabaseHandler;
-import com.nononsenseapps.notepad.test.Helper;
 import com.robotium.solo.Solo;
 
 public class Robotium_TestAddNoteToTaskList extends ActivityInstrumentationTestCase2<ActivityList> {

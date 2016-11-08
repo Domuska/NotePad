@@ -10,7 +10,6 @@ import com.robotium.solo.Condition;
 import com.robotium.solo.Solo;
 
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Robotium_Helper {
